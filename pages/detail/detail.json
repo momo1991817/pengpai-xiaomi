@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "消息详情",
+  "usingComponents": {
+    "nav-bar": "../../static/navbar/index",
+    "i-panel": "../../static/iview/panel/index",
+    "i-cell": "../../static/iview/cell/index",
+    "i-button": "../../static/iview/button/index",
+    "i-toast": "../../static/iview/toast/index",
+    "i-modal": "../../static/iview/modal/index"
+  }
+}

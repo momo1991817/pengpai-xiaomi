@@ -1,0 +1,248 @@
+<view class='menber'>
+    <nav-bar navbar-title='VIP会员' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+    <!--用户信息-->
+    <view class="center">
+        <view class="img">
+            <image src="{{avatarUrl}}" wx:if="{{avatarUrl!=''}}"></image>
+            <image src="../../../images/icons/header.png" wx:else></image>
+        </view>
+        <view class="vipimg" wx:if="{{vipMenber}}">
+            <image src="../../../images/icons/menberVip.png" ></image>
+        </view>
+        <view class="name">
+            <view class="menberName">
+                <view>{{nickName}}</view>
+
+                <view class="uservip" wx:if="{{vipMenber}}">
+                    <view>{{menberName}}</view>
+                </view>
+            </view>
+
+            <view class="remain" wx:if="{{vipMenber}}">
+                监控预警次数剩余{{remainNum}}条
+            </view>
+            <view wx:else>{{menberName}}</view>
+        </view>
+    </view>
+
+    <!--开通会员部分-->
+    <view class="vip">
+        <view class="vip-title">VIP会员套餐</view>
+        <view class="scroll">
+           <scroll-view class="scrollBar" scroll-x="true" scroll-with-animation="true" scroll-into-view="{{toview}}">
+              <view class="scrollBar">
+                  <view class="list {{submitType == item.memberRank?'active': ''}}" wx:for="{{viplist}}" wx:key wx:for-index="idx"  bindtap="bindSelectVip" data-type = "{{item.memberRank}}" data-num = "{{item.preferential}}">
+                      <!--<view class="attentionInfo" wx:if="{{idx==0}}">免费试用</view>-->
+                      <view class="list-type">
+                          {{item.memberName}}/月
+                      </view>
+                      <view class="money">
+                          ￥<view>{{item.preferential}}</view>
+                      </view>
+                      <view class="passMoney">
+                          原价￥{{item.price}}
+                      </view>
+                  </view>
+              </view>
+           </scroll-view>
+
+       </view>
+    </view>
+
+    <view class="btn">
+        <button class="submitBTN" bindtap="handlePay">立即以{{submitNum}}元开通</button>
+        <!--<i-button bind:click="handleClick" type="warning" shape="circle" size="small" i-class="submitBTN"></i-button>-->
+    </view>
+
+    <view class="provision">
+        开通则表示您同意<view bindtap="linkProvision">《澎湃小蜜服务协议》</view>
+    </view>
+
+    <!--我的会员特权-->
+    <view class="power" wx:if="{{vipMenber}}">
+        <view class="vip-title">我的会员特权</view>
+        <view class="powerList scroll">
+            <scroll-view class="scrollBar" scroll-x="true" scroll-with-animation="true" >
+
+                <view class="power-list" wx:for="{{vipMenberlist}}" wx:key>
+                    <view class="powerimg">
+                        <image src="../../../images/icons/{{item.url}}"></image>
+                    </view>
+                    <view wx:if="{{item.query_one}}">
+                        余票查询<view></view>（单天<view style="display: inline;">{{item.info}}</view>）
+                    </view>
+                   <view wx:else>
+                       {{item.info}}
+                   </view>
+                </view>
+
+            </scroll-view>
+        </view>
+        <view class="endTime">会员有效期至：{{endTime}}
+        </view>
+    </view>
+
+    <!--会员特权-->
+    <!--<view class="power">-->
+        <!--&lt;!&ndash;会员产品对应特权标题&ndash;&gt;-->
+        <!--<view class="vip-power-list">-->
+            <!--<view class="vip-header-title">会员特权</view>-->
+            <!--<view class="vip-title-list" wx:for="{{powerTitle}}" wx:key="key" wx:for-index="idx">-->
+            <!--<view class="col-vip vip{{idx}}">{{item}}</view>-->
+            <!--</view>-->
+            <!---->
+        <!--</view>-->
+
+        <!--&lt;!&ndash;会员产品&ndash;&gt;-->
+        <!--<view class="vip-content-list" wx:for="{{powerVip}}" wx:key="key">-->
+        <!--<view class="vip-header-title">{{item}}</view>-->
+        <!--<view class="vip-title-circle" wx:for="{{powerList[item]}}" wx:key="key" wx:for-item="items" wx:for-index="pidx">-->
+        <!--<view class="{{items.A?'circle':''||items.B?'circle':''||items.C?'circle':''||items.D?'circle':''}} vip{{pidx}}"></view>-->
+        <!--</view>-->
+        <!--</view>-->
+    <!--</view>-->
+
+    <view class="power powerlist">
+        <!--会员产品对应特权标题-->
+        <view class="vip-power-list">
+            <view class="vip-header-title">会员特权</view>
+            <!--<view class="vip-title-list" wx:for="{{powerTitle}}" wx:key="key" wx:for-index="idx">-->
+                <!--<view class="col-vip vip{{idx}}">{{item}}</view>-->
+            <!--</view>-->
+            <view class="vip-title-list">
+                <view class="col-vip vip1">入门版</view>
+            </view>
+            <view class="vip-title-list">
+                <view class="col-vip vip2">基础版</view>
+            </view>
+            <view class="vip-title-list">
+                <view class="col-vip vip3">高级版</view>
+            </view>
+        </view>
+
+        <!--会员产品-->
+        <!--<view class="vip-content-list" wx:for="{{powerVip}}" wx:key="key">-->
+            <!--<view class="vip-header-title">{{item}}</view>-->
+            <!--<view class="vip-title-circle" wx:for="{{powerList[item]}}" wx:key="key" wx:for-item="items" wx:for-index="pidx">-->
+                <!--<view class="{{items.A?'circle':''||items.B?'circle':''||items.C?'circle':''||items.D?'circle':''}} vip{{pidx}}"></view>-->
+            <!--</view>-->
+        <!--</view>-->
+        <view class="vip-content-list">
+             <view class="vip-header-title">余票查询</view>
+             <view class="vip-title-circle">
+                <view>当天</view>
+            </view>
+            <view class="vip-title-circle">
+                <view>当天/前后7天</view>
+            </view>
+            <view class="vip-title-circle">
+                <view>当天/前后7天</view>
+            </view>
+        </view>
+
+        <view class="vip-content-list">
+            <view class="vip-header-title">预警监控（条）</view>
+            <view class="vip-title-circle">
+                <view>50</view>
+            </view>
+            <view class="vip-title-circle">
+                <view>150</view>
+            </view>
+            <view class="vip-title-circle">
+                <view>300</view>
+            </view>
+        </view>
+
+        <view class="vip-content-list">
+            <view class="vip-header-title">热门航线查询（天）</view>
+            <view class="vip-title-circle">
+                <view>60</view>
+            </view>
+            <view class="vip-title-circle">
+                <view>60</view>
+            </view>
+            <view class="vip-title-circle">
+                <view>90</view>
+            </view>
+        </view>
+
+        <view class="vip-content-list">
+            <view class="vip-header-title">美联航升舱<view></view>（前后7天）</view>
+            <view class="vip-title-circle">
+                <view><i-icon type="delete_fill" color="#ff9900" size="16"/></view>
+            </view>
+            <view class="vip-title-circle">
+                <view><i-icon type="delete_fill" color="#ff9900" size="16"/></view>
+            </view>
+            <view class="vip-title-circle">
+                <view><i-icon type="success_fill" color="#2b85e4" size="16"/></view>
+            </view>
+        </view>
+
+        <view class="vip-content-list">
+            <view class="vip-header-title">日程管理</view>
+            <view class="vip-title-circle">
+                <view><i-icon type="success_fill" color="#2b85e4" size="16"/></view>
+            </view>
+            <view class="vip-title-circle">
+                <view><i-icon type="success_fill" color="#2b85e4" size="16"/></view>
+            </view>
+            <view class="vip-title-circle">
+                <view><i-icon type="success_fill" color="#2b85e4" size="16"/></view>
+            </view>
+        </view>
+
+    </view>
+
+
+    <!--VIP会员叠加部分-->
+    <view class="vip-add">
+        <view class="vip-title">VIP会员叠加包</view>
+        <view class="scroll">
+            <view class="list vip1">
+                <view class="list-type">
+                    入门版
+                </view>
+                <view class="money">
+                    100元/100条
+                </view>
+                <view class="money">
+                    200元/300条
+                </view>
+            </view>
+
+            <view class="list vip2">
+                <view class="list-type">
+                    基础版
+                </view>
+                <view class="money">
+                    100元/100条
+                </view>
+                <view class="money">
+                    200元/300条
+                </view>
+            </view>
+
+            <view class="list vip3">
+                <view class="list-type">
+                    高级版
+                </view>
+                <view class="money">
+                    100元/150条
+                </view>
+                <view class="money">
+                    200元/500条
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <i-toast id="toast" />
+</view>
+
+
+<i-modal title="请确认" visible="{{ visible }}"  actions="{{actions}}" bind:click="handleAction">
+    <view class="actionsModal">产品不叠加，付费后即刻解锁更多权限。</view>
+</i-modal>
+
+

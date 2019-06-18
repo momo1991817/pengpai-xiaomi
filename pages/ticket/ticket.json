@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText":"余票",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "nav-bar": "../../static/navbar/index",
+    "i-button": "../../static/iview/button/index",
+    "i-icon": "../../static/iview/icon/index",
+    "i-load-more": "../../static/iview/load-more/index",
+    "i-alert": "../../static/iview/alert/index",
+    "i-notice-bar": "../../static/iview/notice-bar/index"
+  }
+}

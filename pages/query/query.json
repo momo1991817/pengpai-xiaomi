@@ -1,0 +1,16 @@
+{
+  "navigationBarTitleText":"搜索列表页面",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "nav-query": "../../static/navbar/navquery/index",
+    "i-button": "../../static/iview/button/index",
+    "i-icon": "../../static/iview/icon/index",
+    "i-modal": "../../static/iview/modal/index",
+    "i-input-number": "../../static/iview/input-number/index",
+    "i-toast": "../../static/iview/toast/index",
+    "i-alert": "../../static/iview/alert/index",
+    "i-row": "../../static/iview/row/index",
+    "i-col": "../../static/iview/col/index",
+    "i-spin": "../../static/iview/spin/index"
+  }
+}

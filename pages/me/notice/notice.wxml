@@ -1,0 +1,63 @@
+<view class='notice'>
+    <nav-bar navbar-title='消息中心' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+
+
+    <view class="content" wx:if="{{hasData}}">
+        <view class="list" wx:for="{{list}}" wx:key="key">
+            <view class="time">
+                {{item.time}}
+            </view>
+            <i-swipeout  i-class="i-swipeout-demo-item" >
+                <view slot="content">
+                    <navigator url='detail/detail?id={{item.id}}'>
+                        <view class="info">
+                            <view class="title">
+                                {{item.title}}
+                                <view class="dot" wx:if="{{!item.status}}"></view>
+                            </view>
+                            <view class="content">
+                                {{item.message}}
+                            </view>
+                        </view>
+                    </navigator>
+                </view>
+                <view slot="button" class="i-swipeout-demo-button-group">
+                    <view class="i-swipeout-demo-button" style="width:50%" bindtap="OpenActionsTap" data-id="{{item.id}}">删除</view>
+                    <view class="i-swipeout-demo-button" style="width:50%" bindtap="CloseActionsTap">返回</view>
+                </view>
+
+            </i-swipeout>
+        </view>
+    </view>
+
+
+    <view class="nodata" wx:else>
+        <view>
+            <image src="../../../images/icons/search.png"></image>
+            <view> 您还没有任何消息哦</view>
+        </view>
+    </view>
+
+
+    <i-action-sheet visible="{{ visible }}" actions="{{ actions }}" show-cancel bind:cancel="handleCancel" bind:click="handleClickItem" mask-closable="{{ false }}">
+        <view slot="header" style="padding: 16px">
+            <view style="color: #444;font-size: 16px">确定删除吗？</view>
+            <text>删除后无法恢复哦</text>
+        </view>
+    </i-action-sheet>
+
+
+
+
+    <view wx:if="{{showLoading}}">
+        <i-load-more />
+    </view>
+
+    <view wx:if="{{showInfo&&!showLoading}}">
+        <i-load-more tip="没有更多消息" loading="{{ false }}" />
+    </view>
+
+    <i-toast id="toast" />
+
+</view>

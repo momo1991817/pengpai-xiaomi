@@ -1,0 +1,91 @@
+<view class="city">
+    <!--<nav-tab bind:myevent="onMyEvent" bind:myBackevent="onBackEvent"></nav-tab>-->
+
+    <nav-bar navbar-title='选择城市' navbar-icon="{{false}}"  bind:myBackevent="onBackEvent"></nav-bar>
+
+    <view class="wrapper">
+        <view class='list-warpper'>
+            <!-- 搜索框 -->
+            <view wx:if="{{config.search}}" class='list-search' style="height:{{config.searchHeight}}px">
+                <view class='list-search-box'>
+                    <icon type="search" size="15" />
+                    <input placeholder="输入您要搜索的城市名或三字码" bindinput='input' bindfocus="inputFocus" />
+                </view>
+                <!--<button class='search-button' catchtap='searchMt'>搜索</button>-->
+            </view>
+
+            <view class="tabs" style="top:{{statusBarHeight+titleBarHeight+45}}px">
+                <i-tabs current="{{ current }}" bindchange="handleChange">
+                    <i-tab key="1" title="国内城市"></i-tab>
+                    <i-tab key="2" title="国际港澳台"></i-tab>
+                </i-tabs>
+            </view>
+
+             <view wx:if="{{!showLoading}}">
+                 <!--标题-->
+                 <view wx:if="{{config.suctionTop}}" class='fiexed-box list-title' style='top:{{statusBarHeight+titleBarHeight+87}}px'>
+                     {{list[listIndex].title}}
+                 </view>
+                 <!-- 搜索到所有数据的时候显示 -->
+                 <block wx:if="{{showList}}">
+                     <scroll-view class="list-scroll {{config.search?'top':''}}" style="top:87px"  scroll-y="true" scroll-into-view="{{jumpNum}}" scroll-with-animation="{{config.animation}}" bindscroll="scroll">
+
+                         <!-- 主体内容显示 -->
+                         <view id="{{'index'+index}}"  wx:for="{{list}}" wx:key="key">
+                             <view class='list-title fixed-title-hock'>{{item.title}}</view>
+                             <view class='{{config.horizontal&&item.type==="hot" || item.type==="hot"?"list-horizontal":""}}'>
+                                 <view class='list-name {{idx === 0 ?"":"border"}}' wx:for="{{item.item}}" wx:for-item="city" wx:for-index="idx" wx:key="city" data-detail="{{city}}" catchtap='detailMt'>
+                                     {{city.name}}
+                                 </view>
+                             </view>
+                         </view>
+                     </scroll-view>
+
+                     <!-- 右侧索引显示 -->
+                     <view class='list-right-wrapper'>
+                         <view class='right-item {{listIndex == index?"active":""}}' wx:for="{{rightArr}}" wx:key="rightArr" data-id="{{'index'+index}}" catchtap='jumpMt'>
+                             {{rightArr[index]}}
+                         </view>
+                     </view>
+                 </block>
+
+                 <block wx:else>
+                     <view class="list-focus" style='padding-top:87px'>
+                        <i-panel class="cell-panel-demo" >
+                            <i-cell-group>
+                                <i-cell title="{{city.name}}" wx:for="{{list}}"  data-detail="{{city}}" wx:for-item="city" wx:for-index="idx" wx:key="city" catchtap='detailMt'></i-cell>
+                            </i-cell-group>
+                        </i-panel>
+                     </view>
+                     <!--<scroll-view class="list-scroll {{config.search?'top':''}}"  scroll-y="true" scroll-into-view="{{jumpNum}}" scroll-with-animation="{{config.animation}}" bindscroll="scroll">-->
+                         <!--<view class="list-focus" >-->
+                             <!--<i-panel class="cell-panel-demo" >-->
+                                 <!--<i-cell-group>-->
+                                     <!--<i-cell title="{{city.name}}" wx:for="{{list}}"  data-detail="{{city}}" wx:for-item="city" wx:for-index="idx" wx:key="city" catchtap='detailMt'></i-cell>-->
+                                 <!--</i-cell-group>-->
+                             <!--</i-panel>-->
+                         <!--</view>-->
+                     <!--</scroll-view>-->
+                 </block>
+             </view>
+            <view class="container" wx:if="{{showLoading}}">
+                <i-spin fix>
+                    <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+                    <view>Loading</view>
+                </i-spin>
+            </view>
+
+            <!-- 没有搜索到数据的时候显示 -->
+            <block wx:if="{{list.length == 0 }}">
+                <view class='nodata'>没有搜索到相关的数据哦</view>
+            </block>
+
+        </view>
+    </view>
+
+
+
+</view>
+
+
+

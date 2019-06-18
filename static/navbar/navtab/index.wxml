@@ -1,0 +1,16 @@
+<view class="container" style="padding-top:{{statusBarHeight+titleBarHeight}}px">
+    <view class="header">
+        <view class="status-bar" style="height:{{statusBarHeight}}px" ></view>
+        <view class="title-bar" style="height:{{titleBarHeight}}px">
+           <view class="icon"  bindtap='goBack'>
+               <i-icon type="return" size="28" color="#fff" />
+           </view>
+            <view class="title">
+                <view >
+                    <view class = "{{currentTab == 0 ? 'tab active':'tab'}}" data-current="0" bindtap="clickTab">国内</view>
+                    <view class="{{currentTab == 1 ? 'tab active':'tab'}}" data-current="1" bindtap="clickTab" >国际港澳台</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

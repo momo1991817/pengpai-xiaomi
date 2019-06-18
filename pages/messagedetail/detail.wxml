@@ -1,0 +1,149 @@
+<view class="detial">
+  <nav-bar navbar-title='订单详情' navbar-icon="{{ShowArrow}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+  <i-panel wx:if="{{orderControlType}}">
+    <view class="btn">
+      <view bindtap="OpenModal">
+           <button type="primary" hover-class="none">
+            <i-icon type="clock_fill" size="22" color="#fff" />
+            继续监控
+          </button>
+      </view>
+    </view>
+  </i-panel>
+
+  <i-panel >
+    <i-cell title="订单号" value="{{ orderId }}"></i-cell>
+  </i-panel>
+
+  <i-panel >
+    <i-cell title="订单类型" value="{{ orderType }}"></i-cell>
+  </i-panel>
+
+  <i-panel >
+    <i-cell title="订单状态" value="{{ orderStatus }}"></i-cell>
+  </i-panel>
+
+  <i-panel >
+    <i-cell title="下单时间" value="{{ orderDate }}"></i-cell>
+  </i-panel>
+
+  <i-panel wx:if="{{order}}">
+    <i-cell title="完成时间" value="{{ finishDate }}"></i-cell>
+  </i-panel>
+
+  <i-panel >
+    <i-cell title="订单监控状态" value="{{ orderControlTypeName }}"></i-cell>
+  </i-panel>
+
+  <i-panel >
+    <i-cell title="实时监控次数" value="{{ monitorNum }}"></i-cell>
+  </i-panel>
+
+  <!--<i-panel wx:if="{{!orderDone&&orderStatus==0}}">-->
+    <!--<i-cell title="余票" value="{{ ticketNum }}"></i-cell>-->
+  <!--</i-panel>-->
+  <i-panel>
+    <i-cell title="{{orderDone&&orderStatus==0?'订单完成时余票数':'余票'}}" value="{{ ticketNum }}"></i-cell>
+  </i-panel>
+
+  <i-panel wx:if="{{orderStatus=='降舱订单'}}">
+    <i-cell title="舱位" value="{{ space }}"></i-cell>
+  </i-panel>
+
+  <i-panel wx:if="{{orderStatus=='降舱订单'}}">
+    <i-cell title="降舱情况" value="{{ personNum }}"></i-cell>
+  </i-panel>
+
+  <view class="list">
+    <view class="header clearfix">
+      <text>航班号 {{ airlineNum }}</text>
+      <text class="date">{{leaveDate}}</text>
+    </view>
+
+    <view class="detail clearfix">
+      <view class="airline">
+        <view class="time">
+          {{leaveTime}}
+        </view>
+        <view class="airport" style="padding-left: 10px;">
+          {{city1}}
+        </view>
+      </view>
+
+      <view class="icons">
+        <image src="/images/icons/icon.png"></image>
+      </view>
+
+      <view class="airline">
+        <view class="time">
+          {{arrivalTime }}
+        </view>
+        <view class="airport" style="padding-right: 10px;">
+          {{city2}}
+        </view>
+      </view>
+
+    </view>
+
+    <view class="content" wx:if="{{!orderStatus=='余票订单'}}">
+        <view>
+          <!--<view class="info">舱位</view>-->
+            <view class="content">{{ space }}</view>
+        </view>
+        <view>
+          <!--<view class="info">需求人数</view>-->
+          <view class="content" wx:if="{{orderStatus!='降舱订单'}}">{{ personNum }}</view>
+
+        </view>
+    </view>
+
+    <!--<view class="content" >-->
+      <!--<view>-->
+        <!--<view class="info">订单号</view>-->
+        <!--<view class="content">{{ orderId }}</view>-->
+      <!--</view>-->
+      <!--<view>-->
+        <!--<view class="info">订单状态</view>-->
+        <!--<view class="content ticket">{{ orderType }}</view>-->
+      <!--</view>-->
+    <!--</view>-->
+
+  </view>
+
+
+  <!--模版提交订单，并添加人数监控-->
+  <view wx:if="{{visible1}}">
+    <view class="modal-mask"></view>
+    <view class="modal">
+      <view class="modal-main">
+        <view class="modal-content">
+          <view class="modal-title">继续监控该订单</view>
+          <form report-submit="true" bindsubmit="RenewSubmit" >
+             <view class="modal-btn">
+              <i-row>
+                <i-col span="12" i-class="col-class">
+                  <button bindtap="handleClose">取消</button>
+                </i-col>
+                <i-col span="12" i-class="col-class">
+                  <view class="addBorder">
+                    <button form-type="submit">确认</button>
+                  </view>
+                </i-col>
+              </i-row>
+            </view>
+
+            <!--<button form-type="submit">提交</button>-->
+          </form>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="navitageto" style="top:{{statusBarHeight+(titleBarHeight- 27)/2}}px" bindtap="jampTo">
+    首页
+  </view>
+
+
+  <i-toast id="toast" />
+</view>

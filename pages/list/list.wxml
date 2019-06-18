@@ -1,0 +1,142 @@
+<nav-bar navbar-title='热门航线' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+<view class="calender" style="top:{{(titleBarHeight - 28)/2+statusBarHeight}}px">
+
+
+    <view class="searchSelect" bindtap="openPicker" >
+        <image src='/images/icons/hot.png' ></image>
+        <!--<i-icon type="tasklist" size="28" color="#fff"/>-->
+    </view>
+    <view class="searchIcon" bindtap="openSearch">
+        <i-icon type="search"  size="28" color="#fff"/>
+    </view>
+</view>
+
+<view class="report" wx:if="{{vipmenber}}">
+
+    <!--<view style="padding-top: {{statusBarHeight+titleBarHeight}}px"></view>-->
+    <veiw class="header-fixed" style="top: {{statusBarHeight+titleBarHeight}}px">
+        <view class="header search-title">
+            <picker bindchange="bindPickerAirlineChange" value="{{airlineList[selectNum]}}" range="{{airlineList}}" wx:if="{{showPicker}}">
+                <view style="vertical-align: middle;padding-right:4px;display: inline-block;">{{airlineList[selectNum]}}</view><i-icon type="unfold" size="18"/>
+            </picker>
+            <view wx:else>{{city1}}-{{city2}}  {{airlines[index]}}{{flightNumber[flightNumberIndex]}}</view>
+        </view>
+        <view class="date">
+            <view class="list" wx:for="{{week}}" wx:key="key">
+                {{item}}
+            </view>
+        </view>
+
+    </veiw>
+
+    <view style="padding-top: 42px"></view>
+
+
+
+    <view class="content" wx:if="{{!showLoading}}">
+        <view class="calender-list" wx:for="{{year}}" wx:key="key">
+            <view class="title">
+                {{item}}
+            </view>
+            <view class="date-box {{items.cur||items.passDate||items.fullDay>lastDate?'date-past':''}}" wx:for="{{AirlineData[item]}}" wx:for-item="items" wx:for-index="index" wx:key="key" >
+               <view class="date">
+                   <view class="day">
+                       {{items.date}}
+                   </view>
+
+                   <view wx:if="{{!items.cur&&!items.passDate&&items.fullDay<=lastDate}}">
+                       <view class="cabin {{items.bussinessClass>0?'isNum':''}}" wx:if="{{items.bussinessClass!=undefined}}">
+                           公：{{items.bussinessClass}}
+                       </view>
+                       <view wx:if="{{showFirstCabin}}">
+                           <view class="cabin {{items.firstClass>0?'isNum':''}}" wx:if="{{items.firstClass!=undefined}}">
+                               头：{{items.firstClass}}
+                           </view>
+                       </view>
+                       <view class="cabin" style="padding: 8px 0;"wx:if="{{items.firstClass==undefined&&items.bussinessClass==undefined}}">/</view>
+                   </view>
+
+
+               </view>
+            </view>
+        </view>
+
+        <view class="calender-attention" wx:if="{{!showPicker}}">注：“/”指该日无此航班；此功能甄选 国内-欧美澳 1200多条热门航线未来90天余票，全局掌握热门航线余票规律。
+            附：热门航线余票每日采集2次，非实时数据，或存在少许误差。</view>
+        <view class="calender-attention" wx:else>注：“/”指该日无此航班；该航线为系统默认推荐的热门航线。附：热门航线余票每日采集2次，非实时数据，或存在少许误差。</view>
+    </view>
+
+    <view class="container" wx:if="{{showLoading}}">
+        <i-spin fix>
+            <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+            <view>Loading</view>
+        </i-spin>
+    </view>
+
+
+    <!--搜索框 选择框-->
+    <view wx:if="{{showSearch}}">
+        <view class="modal-mask"></view>
+        <view class="modal">
+             <view class="modal-content">
+                 <view class="modal-title">
+                     <view class="modal-title-search">搜索</view>
+
+                     <view bindtap="closeSearchModal" class="close"><i-icon type="close" size="16"/></view>
+                 </view>
+                 <!--城市-->
+                 <view class="info clearfix">
+                     <view class="info-fly airlineBorder"  bind:touchstart="handleOpen1">
+                         {{city1}}
+                     </view>
+                     <view class="info-icon" bindtap="exchangeCity">
+                         <image src="../../images/icons/icon.png"></image>
+                     </view>
+                     <view class="info-fly airlineBorder"  bind:touchstart="handleOpen2">
+                         {{city2}}
+                     </view>
+                 </view>
+
+                 <!--航司 航班号-->
+                 <view class="info clearfix">
+                     <view class="info-fly airlineBorder" >
+                         <picker bindchange="bindPickerAirChange" value="{{index}}" range="{{airlines}}">
+                             {{airlines[index]}}
+                         </picker>
+                     </view>
+                     <view class="info-icon" >
+
+                     </view>
+                     <view class="info-fly airlineBorder" >
+                         <picker bindchange="bindPickerNumChange" value="{{flightNumber[flightNumberIndex]}}" range="{{flightNumber}}">
+                             {{ flightNumber[flightNumberIndex] }}
+                         </picker>
+                     </view>
+
+                 </view>
+
+                 <view class="btn">
+                     <!--<i-button bind:click="submitClick" type="primary">提交</i-button>-->
+                     <form report-submit="true" bindsubmit="submitClick" >
+                         <button form-type="submit" hover-class="none">查询</button>
+                     </form>
+                     <view class="errorInfo" wx:if="{{showInfo}}">该航线非系统热门航线，请重新选择。</view>
+                 </view>
+             </view>
+        </view>
+    </view>
+
+    <!--消息提醒-->
+    <i-toast id="toast" />
+
+</view>
+
+<view class="nopower" wx:else>
+    <view>
+        <image src="../../images/icons/cry.png"></image>
+        <view>
+            主人我还没有权限！
+            <navigator url="../me/menber/menber"  hover-class="none" style="color:#2b85e4 ;">购买</navigator>
+        </view>
+    </view>
+</view>

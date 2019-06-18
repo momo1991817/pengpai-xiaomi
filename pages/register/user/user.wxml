@@ -1,0 +1,38 @@
+<view class="register">
+    <nav-bar navbar-title='注册' navbar-icon="{{true}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+    <view class="info">
+        注：用户名由字母加数字组成，以字母开头。
+    </view>
+    <view class="input-list">
+        <i-input value="{{ user }}" title="用户名" type="text" placeholder="请输入用户名"  bind:change="handleUserChange"/>
+    </view>
+
+    <view class="input-list">
+        <i-input value="{{ pwd }}" title="密码" type="password" placeholder="请输入密码" minlength="6"  bind:change="handlePwdChange"/>
+    </view>
+
+    <view class="input-list">
+        <i-input value="{{ rpwd }}" title="确认密码" type="password" placeholder="请再次输入密码" minlength="6"  bind:change="handleRPwdChange"/>
+    </view>
+
+
+
+    <view class="btn">
+        <i-button bind:click="SubmitClick" type="primary">提交</i-button>
+    </view>
+
+    <view class="mask" wx:if="{{showLoading}}">
+        <!--<i-spin fix>提交中</i-spin>-->
+        <view class="info">
+            提交中..
+        </view>
+    </view>
+
+
+
+
+    <i-toast id="toast" />
+
+
+</view>

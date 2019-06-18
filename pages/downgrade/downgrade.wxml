@@ -1,0 +1,93 @@
+
+<view class="home" >
+    <nav-bar navbar-title='降舱监控' navbar-icon="{{true}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+    <image class='tab' src='/images/bg01.jpg' ></image>
+
+    <i-notice-bar icon="systemprompt">
+        PC（电脑）端提交PNR，智能解析。
+    </i-notice-bar>
+
+    <view class="content">
+
+        <!--城市-->
+        <view class="info clearfix">
+            <view class="info-fly airlineBorder"  bind:touchstart="handleOpen1">
+                <!--<i-input value="{{ city1 }}" disabled />-->
+                <!--<input type="text" value="{{city1}}" disabled/>-->
+                {{city1}}
+            </view>
+            <view class="info-icon" bindtap="exchangeCity">
+                <!--<i-icon type="enterinto" size="28" color="#80848f" />-->
+                <image src="../../images/icons/icon.png"></image>
+            </view>
+            <view class="info-fly airlineBorder"  bind:touchstart="handleOpen2">
+                <!--<input type="text" value="{{city2}}" disabled/>-->
+                {{city2}}
+            </view>
+        </view>
+
+        <!--航司-->
+        <view class="airline airlineBorder airlinePadding">
+            <picker bindchange="bindPickerAirChange" value="{{index}}" range="{{airlines}}">
+                <view class="picker"><text>航司</text>{{airlines[index]}}</view>
+            </picker>
+        </view>
+
+        <!--航班号-->
+        <view class="airline-single airlineBorder airlinePadding" >
+            <picker bindchange="bindPickerNumChange" value="{{flightNumber[flightNumberIndex]}}" range="{{flightNumber}}">
+                <view class="picker"><text>航班号 </text>{{ flightNumber[flightNumberIndex] }}</view>
+            </picker>
+        </view>
+
+        <!--舱位-->
+        <view class="seats-select airlineBorder airlinePadding">
+            <picker bindchange="bindPickerSeatChange" value="{{seats[seatIndex]}}" range="{{seats}}">
+                <view class="picker"><text>舱位 </text>{{seats[seatIndex]}}</view>
+            </picker>
+            <!--<i-input value="{{ place }}" title="舱位"  placeholder="请输入舱位所在的字母标识" bind:change="bindseatChange"/>-->
+        </view>
+
+
+        <!--单程日期选择-->
+        <view class="airline-single airlineBorder airlinePadding">
+            <picker
+                    mode="date"
+                    value="{{startdate}}"
+                    start="{{nowDate}}"
+                    end="2050-01-01"
+                    bindchange="bindStartDateChange"
+            >
+                <view class="picker"><text>日期</text>{{startdate}}</view>
+            </picker>
+        </view>
+
+        <view class="btn">
+            <!--<i-button bind:click="submitClick" type="primary">提交</i-button>-->
+            <form report-submit="true" bindsubmit="submitClick" >
+                <button form-type="submit" hover-class="none">提交</button>
+            </form>
+        </view>
+
+        <!--消息提醒-->
+        <i-toast id="toast" />
+        <i-message id="message" />
+
+
+        <view class="spin" wx:if="{{submitLoading}}" style="top:{{statusBarHeight+titleBarHeight+180}}px">
+            <view class="icon-spin">
+                <i-spin custom>
+                    <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+                    <view>提交中</view>
+                </i-spin>
+            </view>
+
+        </view>
+
+    </view>
+
+
+
+</view>
+

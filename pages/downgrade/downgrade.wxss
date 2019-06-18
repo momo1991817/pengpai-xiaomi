@@ -1,0 +1,135 @@
+.home { background: #F8F8F9; }
+.home>image {
+    width: 100%;
+    height: 180px;
+}
+.home>.tab {margin-bottom: 10px;}
+.home>.content {background: #fff; position: relative;}
+
+.info{ height: 36px;}
+.info >view {float: left;}
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.info >view.info-fly {
+    width: 40%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    border-bottom: 1px solid #dddee1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+}
+.info >view.info-fly>text{
+    height: 100%;
+    /*padding: 7px 0;*/
+}
+.info>view.info-icon {
+    width: 20%;
+    height: 28px;
+    text-align: center;
+    margin-top: 4px;
+}
+.info>view.info-icon>image{
+    width: 28px;
+    height: 28px;
+}
+
+
+
+
+.airlineBorder{
+    padding: 7px 15px;
+    border-bottom: 1px solid #dddee1;
+}
+.seats-select{
+    border-bottom: 1px solid #dddee1;
+    padding-left: 19px;
+}
+
+/*.picker ,.i-radio-title{color: #686E7B;}*/
+.picker>text {margin-right: 35px; color:#80848f;}
+.airlineNum .picker>text{margin-right: 15px;}
+.airline-volage-double .picker>text {
+    margin-right: 2px;
+}
+
+.airlinePadding{padding-left: 34px;}
+.airline-double>view{
+    display: inline-block;
+    width: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.airline-double .title {
+    font-size: 12px;
+    color: #80848f;
+}
+.airline-double .exchange {text-align: center;}
+
+
+
+.btn {width: 95%;margin: 20px auto 10px;}
+
+.num .num-btn, .num .num-title{display: inline-block;}
+.num .num-title{
+    color:#495060;
+    min-width:65px;
+    padding-right:10px;
+}
+.picker {height: 25px;}
+.airline-singles{padding: 0;}
+.airline-singles>view.exchange{
+    width: 40%;
+    padding: 7px 0;
+}
+
+.more {
+    text-align: right;
+    padding-right: 10px;
+    color: #80848f;
+    font-size: 16px;
+}
+
+
+.btn button {
+    background: #2D8CF0;
+    margin: 10px 0;
+    color: #fff;
+}
+
+@keyframes ani-demo-spin {
+    from { transform: rotate(0deg);}
+    50%  { transform: rotate(180deg);}
+    to   { transform: rotate(360deg);}
+}
+.icon-load{
+    animation: ani-demo-spin 1s linear infinite;
+}
+.spin{
+    position: fixed;
+    width: 100%;
+    height: 280px;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    top: 50%;
+    background: rgba(255,255,255,0.8);
+}
+.icon-spin{
+    position: relative;
+    top: 50%;
+    margin-top: -20px;
+}
+
+.i-spin.i-spin-default.i-spin-show-text{
+    margin-top: 110px;
+}
+

@@ -1,0 +1,25 @@
+<view class="infodetail">
+    <nav-bar navbar-title='信息内容' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+
+    <view class="list" data-type="{{type}}" bindtap="bindClick">
+        <view class="content">
+            <view class="title">
+                {{title}}
+            </view>
+            <view class="time">
+               {{time}}
+            </view>
+            <view class="message">
+              {{message}}
+            </view>
+
+        </view>
+    </view>
+
+    <view class="btn">
+        <i-button bind:click="bindClick" type="warning" size="small">订单详情</i-button>
+    </view>
+
+    <i-toast id="toast" />
+</view>

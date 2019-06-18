@@ -1,0 +1,37 @@
+<nav-bar navbar-title='是否注册帐号' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+<!--<nav-bar navbar-title='订单详情' navbar-icon="{{false}}" ></nav-bar>-->
+<view class="query">
+    <!--用户未注册提示-->
+    <!--<view wx:if="{{visible}}">-->
+        <!--<view class="modal-mask"></view>-->
+        <!--<view class="modal">-->
+            <!--<view class="modal-main">-->
+                <!--<view class="modal-content">-->
+                    <!--<view class="modal-title">您还未绑定手机号码，是否前往绑定？</view>-->
+                    <!--<view class="modal-btn">-->
+                        <!--<i-row>-->
+                            <!--<i-col span="12" i-class="col-class">-->
+                                <!--<button bindtap="toRegisterClose">取消</button>-->
+                            <!--</i-col>-->
+                            <!--<i-col span="12" i-class="col-class">-->
+                                <!--<view class="addBorder">-->
+                                    <!--<button bindtap="toRegisterSure">确认</button>-->
+                                <!--</view>-->
+                            <!--</i-col>-->
+                        <!--</i-row>-->
+                    <!--</view>-->
+                <!--</view>-->
+            <!--</view>-->
+        <!--</view>-->
+    <!--</view>-->
+
+    <i-modal title="提示" visible="{{ visible }}"  actions="{{actions}}" bind:click="handleAction">
+        <view class="actionsModal">
+            <view > 您还未绑定手机号码，是否前往绑定？</view>
+        </view>
+
+    </i-modal>
+
+</view>
+

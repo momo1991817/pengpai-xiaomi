@@ -1,0 +1,16 @@
+{
+    "navigationBarTitleText":"订单详情",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "nav-bar": "../../../static/navbar/index",
+        "i-cell": "../../../static/iview/cell/index",
+        "i-panel": "../../../static/iview/panel/index",
+        "i-toast": "../../../static/iview/toast/index",
+        "i-modal": "../../../static/iview/modal/index",
+
+
+        "i-icon": "../../../static/iview/icon/index",
+        "i-row": "../../../static/iview/row/index",
+        "i-col": "../../../static/iview/col/index"
+    }
+}

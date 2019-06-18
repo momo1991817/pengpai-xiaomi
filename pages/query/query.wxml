@@ -1,0 +1,140 @@
+<nav-query bind:myevent="onMyEvent" city1="{{city1}}" city2="{{city2}}" startCity="{{city1}}" endCity="{{city2}}" volage="{{single}}"></nav-query>
+<!--用户是会员-->
+<view class="query" wx:if="{{vipmenber}}">
+
+    <view wx:if="{{!showLoading}}">
+        <view class="volage" wx:if="{{single}}">
+            <i-icon type="prompt" size="18" color="#ff9900" />点击上方切换航线，并选择要监控的订单！
+        </view>
+
+
+        <view class="volage real_error" wx:if="{{!realTime}}">
+            <i-icon type="prompt" size="18" color="#ed3f14" />
+            实时数据请求失败，请重新查询！
+        </view>
+
+        <view class="content" wx:if="{{!info}}">
+            <view class="list" wx:for="{{list}}" wx:key="key">
+                <view class="header">
+                    <text> {{item.flightDate}}</text>
+                    <view class="btn">
+                        <view bindtap="OpenModal" data-id="{{item.id}}" data-civil="{{item.civil}}" data-seat="{{item.code}}" data-do="{{item.hasReserve}}" class="{{item.hasReserve||(item.id==clickId)?'selectBtn':''}}">
+                            <button type="primary" size="mini" disabled="{{item.hasReserve||(item.id==clickId)}}">
+                                <i-icon type="clock_fill" size="18" color="#fff" />
+                                增加监控
+                            </button>
+                        </view>
+                    </view>
+                </view>
+                <view class="detail clearfix">
+                    <view class="airline">
+                        <view class="time">
+                            {{item.departureTime}}
+                        </view>
+                        <view class="airport">
+                            {{item.depCityName}}
+                        </view>
+                    </view>
+
+                    <view class="icons">
+                        <image src="/images/icons/icons.png"></image>
+                    </view>
+
+                    <view class="airline">
+                        <view class="time">
+                            {{item.arrivalTime}}
+                        </view>
+                        <view class="airport">
+                            {{item.arrCityName}}
+                        </view>
+                    </view>
+
+                </view>
+                <view class="footer">
+                    <view class="airline">
+                        {{item.airLineShortName}}{{item.flightNo}}
+                    </view>
+                    <view class="seat">
+                        {{item.cabLevel=='升舱'?item.code+item.cabLevel:item.cabLevel}}
+                    </view>
+                    <view class="ticket">
+                        {{item.description=='票量充足'?item.description:'余票'+item.description+'张'}}
+                    </view>
+
+                </view>
+            </view>
+        </view>
+
+
+        <view class="error" wx:else>
+            <i-alert type="warning">
+                {{infoMessage}}
+            </i-alert>
+        </view>
+    </view>
+
+
+    <!--模版提交订单，并添加人数监控-->
+    <view wx:if="{{visible1}}">
+        <view class="modal-mask"></view>
+        <view class="modal">
+             <view class="modal-main">
+                 <view class="modal-content">
+                      <view class="modal-title">请选择监控人数</view>
+                     <form report-submit="true" bindsubmit="submitNum" >
+                         <i-input-number value="{{ num }}" min="1" max="100" bindchange="handleNumChange" />
+                        <view class="modal-btn">
+                            <i-row>
+                                <i-col span="12" i-class="col-class">
+                                    <button bindtap="handleClose">取消</button>
+                                </i-col>
+                                <i-col span="12" i-class="col-class">
+                                    <view class="addBorder">
+                                        <button form-type="submit">确认</button>
+                                    </view>
+                                </i-col>
+                            </i-row>
+                        </view>
+
+                         <!--<button form-type="submit">提交</button>-->
+                     </form>
+                 </view>
+             </view>
+         </view>
+    </view>
+
+</view>
+
+
+
+<view class="nopower" wx:else>
+    <view>
+        <image src="../../images/icons/cry.png"></image>
+        <view>
+            主人我还没有权限！
+            <navigator url="../me/menber/menber"  hover-class="none" style="color:#2b85e4 ;">购买</navigator>
+        </view>
+    </view>
+</view>
+<!--<view class="power" wx:if="{{!vipmenber&&!showLoading}}">-->
+    <!--<i-alert type="warning" show-icon desc>-->
+        <!--会员产品-->
+        <!--<view slot="desc">-->
+
+            <!--<navigator url="../me/menber/menber"  hover-class="none">-->
+               <!--{{vipmenberInfo}} <i-icon type="enter" />-->
+            <!--</navigator>-->
+        <!--</view>-->
+    <!--</i-alert>-->
+<!--</view>-->
+
+
+<!--提示成功失败-->
+<i-toast id="toast" />
+
+<view class="container" wx:if="{{showLoading}}">
+    <i-spin custom>
+        <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+        <view>Loading</view>
+    </i-spin>
+</view>

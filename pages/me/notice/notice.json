@@ -1,0 +1,14 @@
+{
+    "navigationBarTitleText": "通知",
+    "usingComponents": {
+        "nav-bar": "../../../static/navbar/index",
+        "i-icon": "../../../static/iview/icon/index",
+        "i-panel": "../../../static/iview/panel/index",
+        "i-button": "../../../static/iview/button/index",
+        "i-badge": "../../../static/iview/badge/index",
+        "i-load-more": "../../../static/iview/load-more/index",
+        "i-swipeout": "../../../static/iview/swipeout/index",
+        "i-action-sheet": "../../../static/iview/action-sheet/index",
+        "i-toast": "../../../static/iview/toast/index"
+    }
+}

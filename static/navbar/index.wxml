@@ -1,0 +1,13 @@
+<view class="container" style="padding-top:{{statusBarHeight+titleBarHeight}}px">
+    <view class="header">
+        <view class="status-bar" style="height:{{statusBarHeight}}px" ></view>
+        <view class="title-bar" style="height:{{titleBarHeight}}px">
+           <view class="icon" hidden="{{navbarIcon}}" bindtap='goBack'>
+               <i-icon type="return" size="28" color="#fff" />
+           </view>
+            <view class="title" style="margin-right: {{navbarIcon?'0':'28'}}px">
+                {{navbarTitle}}
+            </view>
+        </view>
+    </view>
+</view>

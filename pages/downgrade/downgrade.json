@@ -1,0 +1,20 @@
+{
+  "navigationBarTitleText":"首页",
+  "usingComponents": {
+    "nav-bar": "../../static/navbar/index",
+    "i-input": "../../static/iview/input/index",
+    "i-icon": "../../static/iview/icon/index",
+    "i-radio-group": "../../static/iview/radio-group/index",
+    "i-radio": "../../static/iview/radio/index",
+    "i-tabs": "../../static/iview/tabs/index",
+    "i-tab": "../../static/iview/tab/index",
+    "i-index": "../../static/iview/index/index",
+    "i-index-item": "../../static/iview/index-item/index",
+    "i-button": "../../static/iview/button/index",
+    "i-input-number": "../../static/iview/input-number/index",
+    "i-message": "../../static/iview/message/index",
+    "i-toast": "../../static/iview/toast/index",
+    "i-notice-bar": "../../static/iview/notice-bar/index",
+    "i-spin": "../../static/iview/spin/index"
+  }
+}

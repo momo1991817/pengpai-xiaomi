@@ -1,0 +1,15 @@
+<view class="register">
+    <nav-bar navbar-title='{{title}}' navbar-icon="{{false}}"  bind:myBackevent="onBackEvent"></nav-bar>
+
+    <i-panel>
+        <i-input value="{{ email }}" title="邮箱" type="textarea" autofocus placeholder="请输入邮箱"  bind:change="handleEmailChange"/>
+    </i-panel>
+
+    <view class="btn">
+        <i-button bind:click="SubmitClick" type="primary">提交</i-button>
+    </view>
+
+    <i-toast id="toast" />
+
+
+</view>

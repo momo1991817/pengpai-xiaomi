@@ -1,0 +1,133 @@
+.order,.tab {
+    background: #f8f8f9;
+    padding-bottom: 10px;
+}
+.tab{
+    position: fixed;
+    left: 0;
+    width: 100%;
+}
+.order{
+    margin-top: 52px;
+}
+.nodata{
+    margin-top: 52px;
+ }
+.order>.content .list{
+    margin-top: 10px;
+    background: #fff;
+}
+.order>.content .list-body{
+    padding: 10px 5px 5px 5px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.detail>view,.footer>view{
+    float: left;
+}
+
+.detail>view.airline,
+.footer>view.airline,.footer>view.ticket{
+    width: 40%;
+    text-align: center;
+}
+.footer>view.ticket{
+  overflow: hidden;
+}
+.detail>.icons,.footer>view.seat{
+    width: 20%;
+    text-align: center;
+}
+.detail>.icons{
+    height: 52px;
+    line-height: 52px;
+}
+.detail>.icons>image{
+    width: 30px;
+    height: 30px;
+    margin-top: 11px;
+}
+.airline>.time{
+    font-size: 24px;
+}
+.airline>.airport {
+    font-size: 16px;
+    color: #80848f;
+}
+.header {
+    padding:0 15px;
+    /*height: 30px;*/
+}
+.footer {
+    color: #80848f;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.footer>.ticket{
+    color: #80848f;
+    text-align: center;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.header>text{
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+}
+.header>text{
+    background: #ff9900 ;
+}
+
+.header>.title {
+    float: right;
+    margin-right: 20px;
+    color: #2d8cf0;
+    font-weight: bold;
+}
+
+
+
+.i-swipeout-demo-button-group{
+    height: 100%;
+}
+.i-swipeout-demo-button-group>view{
+    display: inline-block;
+    height: 100%;
+    line-height: 118px;
+    font-weight: bold;
+    text-align: center;
+    color: #fff;
+     background: #2d8cf0;
+    font-size: 18px;
+}
+.nodata{
+    background: #f8f8f9;
+    min-height: 100vh;
+}
+.nodata>view>image{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+.nodata>view{
+    width: 160px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: -50px;
+    text-align: center;
+    color: #80848f;
+}

@@ -1,0 +1,68 @@
+.calender {
+    background: #fff;
+}
+/*.header-fixed>.date,*/
+/*.content{*/
+    /*background: #fff;*/
+/*}*/
+.header-fixed>.date>.list {
+   display: inline-block;
+   width: 14.28%;
+   text-align: center;
+   padding: 10px 0;
+   background: #5CADFF;
+   color: #fff;
+}
+
+.header-fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 10000;
+}
+
+.calender-list{
+    padding: 10px;
+}
+.content .calender-list:not(:last-child){
+    border-bottom: 1px solid #F7F5F4;
+}
+.content .title{
+    font-size: 20px;
+    text-align: right;
+    color: #495060;
+}
+.date-box{
+    position: relative;
+    display: inline-block;
+    width: 14.285%;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 14px 0;
+    color: #bbbec4;
+}
+
+.date-box .date{
+    height: 28px;
+    width: 28px;
+    margin: 0 auto;
+    line-height: 28px;
+    text-align: center;
+    color: #495060;
+}
+.date-box .date.date-border{
+    background: #dddee1;
+    color: #ff9900;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.date-box.date-past{
+
+    border: none;
+}
+.date-box.date-past .date{
+    color:#bbbec4;
+}
+/*.picker{width: 80%;}*/
+/*.icon{width: 20%;text-align: right;}*/

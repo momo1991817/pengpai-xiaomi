@@ -1,0 +1,37 @@
+<view class="calender">
+    <nav-bar navbar-title='我的日程表' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+   <!--<view style="padding-top: {{statusBarHeight+titleBarHeight}}px"></view>-->
+    <veiw class="header-fixed" style="top: {{statusBarHeight+titleBarHeight}}px">
+        <view class="date">
+            <view class="list" wx:for="{{week}}" wx:key="key">
+                {{item}}
+            </view>
+        </view>
+    </veiw>
+
+    <view style="padding-top: 42px"></view>
+
+
+    <view class="content">
+        <view class="calender-list" wx:for="{{year}}" wx:key="key">
+            <view class="title">
+               {{item}}
+            </view>
+            <view class="date-box {{items.cur?'date-past':''}}" wx:for="{{datelist[item]}}" wx:for-item="items" wx:for-index="index" wx:key="key">
+
+                <view wx:if="{{items.num&&!items.cur&&nowDate<items.fullDay}}">
+                    <i-badge count="{{items.num}}"><view class="date date-border" bindtap="getDateSchedule" data-date="{{items.fullDay}}">{{items.day}}</view></i-badge>
+                </view>
+
+                <view class="date" wx:else>
+                    {{items.day}}
+                </view>
+
+            </view>
+        </view>
+
+
+    </view>
+
+</view>

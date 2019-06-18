@@ -1,0 +1,34 @@
+<view class='calender'>
+    <nav-no navbar-title='选择日期' navbar-icon="{{false}}" bind:myevent="onMyEvent"></nav-no>
+
+    <view class='contain'>
+        <view class='date-show'>
+            <view class='lt-arrow' bindtap='lastMonth' wx:if="{{!preDisable}}">
+                <i-icon type="return" size="28" color="#80848f"/>
+            </view>
+            <view class='lt-arrow' wx:else>
+                <i-icon type="return" size="28" color="#bbbec4"/>
+            </view>
+            {{year}}年{{month}}月
+            <view class='rt-arrow' bindtap='nextMonth'>
+                <i-icon type="enter" size="28" color="#80848f"/>
+            </view>
+        </view>
+
+        <view class='header'>
+            <view wx:for='{{date}}' wx:key="key" class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>{{item}}<view></view></view>
+        </view>
+
+        <view class='date-box'>
+            <view wx:for='{{dateArr}}' wx:key="key"
+                  class='{{startDate == item.fullDay ? "nowDay" : ""}} {{item.cur? "passDay" : ""}} {{item.fullDay<isNow?"passDay":""}}' data-date='{{item.fullDay}}'  bindtap="getDate">
+                <view class='date-head'>
+                    <view>{{item.day}}</view>
+                </view>
+                <!-- <view class='date-weight'>{{item.weight}}</view> -->
+            </view>
+        </view>
+    </view>
+
+    <i-toast id="toast" />
+</view>

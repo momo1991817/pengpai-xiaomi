@@ -1,0 +1,23 @@
+.query {
+    background: #fff;
+     padding:15px 10px;
+}
+
+.title1{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.title2{
+    font-size: 18px;
+    margin: 10px 0;
+}
+.title1,.title2{
+    font-weight: bold;
+}
+.content{
+    font-size: 12px;
+    text-indent: 25px;
+    color: #495060;
+    line-height: 20px;
+}

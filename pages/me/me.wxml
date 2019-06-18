@@ -1,0 +1,203 @@
+<view class='container'>
+  <nav-bar navbar-title='{{title}}' navbar-icon="{{true}}"></nav-bar>
+  <!--<view class='me-info'>-->
+    <!--<view class="vipMenber" wx:if="{{vipMenber}}">-->
+      <!--<image src="../../images/icons/menberVip.png"></image>-->
+    <!--</view>-->
+    <!--<navigator url='center/center' class="me-info-content">-->
+      <!--<image src="{{avatarUrl}}"></image>-->
+      <!--<view class="info-name">{{nickName}}</view>-->
+      <!--<view class="uservip" wx:if="{{vipMenber}}">-->
+        <!--可用条数140条-->
+      <!--</view>-->
+
+    <!--</navigator>-->
+  <!--</view>-->
+
+  <!--用户信息-->
+  <view class="center">
+
+    <view class="img" bindtap="linkPersonCenter">
+      <image src="{{avatarUrl}}" wx:if="{{avatarUrl!=''}}"></image>
+      <image src="../../images/icons/header.png" wx:else></image>
+    </view>
+    <view class="vipimg" wx:if="{{vipMenber}}">
+      <image src="../../images/icons/menberVip.png" ></image>
+    </view>
+    <view class="name">
+      <view class="menberName">
+        <view>{{nickName}}</view>
+
+        <view class="uservip" wx:if="{{vipMenber}}">
+          <view>{{menberName}}</view>
+        </view>
+      </view>
+
+      <view class="remain" wx:if="{{vipMenber}}">
+        监控预警次数剩余{{remainNum}}条
+      </view>
+      <view wx:else>{{menberName}}</view>
+    </view>
+  </view>
+
+  <!--<i-notice-bar>-->
+    <!--本部分功能尚未完善，小蜜在加速赶工中！-->
+  <!--</i-notice-bar>-->
+
+  <navigator url="menber/menber">
+    <view class="vip">
+      <view class="img">
+        <image src="/images/icons/vip.png"></image>
+      </view>
+      <view>VIP会员</view>
+
+      <view class="link">
+        <view>
+          {{menberTile}}
+        </view>
+        <i-icon type="enter" size="16"/>
+      </view>
+    </view>
+  </navigator>
+
+
+  <view class='me-list'>
+   <!--消息中心-->
+    <navigator url='notice/notice'>
+      <view class='item'>
+        <view class='hd'>
+            <view class='me-tag me-tag-1'>
+              <image class='icon' src="/images/icons/info.png"></image>
+            </view>
+            <text class='title'>消息中心</text>
+        </view>
+        <view class="view-notice">{{noticeNum}}</view>
+
+        <view class='view-right'>
+           <image class='icon' src="/images/icon/right.png"></image>
+        </view>
+      </view>
+    </navigator>
+
+    <!--我的订单中心-->
+    <navigator url='../order/order'>
+      <view class='item'>
+        <view class='hd'>
+          <view class='me-tag me-tag-2'>
+            <image class='icon' src="/images/icons/order.png"></image>
+          </view>
+          <text class='title'>我的订单</text>
+        </view>
+
+        <view class='view-right'>
+          <image class='icon' src="/images/icon/right.png"></image>
+        </view>
+
+      </view>
+    </navigator>
+
+    <!--余票推送表-->
+    <navigator url='../list/list?Resourse=0'>
+      <view class='item'>
+        <view class='hd'>
+          <view class='me-tag me-tag-3'>
+            <image class='icon' src="/images/icons/ticket.png"></image>
+          </view>
+          <text class='title'>航线余票表</text>
+        </view>
+
+        <view class='view-right'>
+          <image class='icon' src="/images/icon/right.png"></image>
+        </view>
+
+      </view>
+    </navigator>
+
+    <!--交易记录-->
+    <navigator url='trade/trade'>
+      <view class='item'>
+        <view class='hd'>
+          <view class='me-tag me-tag-4'>
+            <image class='icon' src="/images/icons/exchange.png"></image>
+          </view>
+          <text class='title'>交易记录</text>
+        </view>
+
+        <view class='view-right'>
+          <image class='icon' src="/images/icon/right.png"></image>
+        </view>
+
+      </view>
+    </navigator>
+
+
+
+    <!--<navigator url='install/install'>-->
+      <!--<view class='item'>-->
+        <!--<view class='hd'>-->
+          <!--<view class='me-tag me-tag-2'>-->
+            <!--<image class='icon' src="/images/icon/message.png"></image>-->
+          <!--</view>-->
+          <!--<text class='title'>使用手册</text>-->
+        <!--</view>-->
+        <!--<view class='view-right'>-->
+          <!--<image class='icon' src="/images/icon/right.png"></image>-->
+        <!--</view>-->
+      <!--</view>-->
+    <!--</navigator>-->
+
+    <!--<navigator url='about/about'>-->
+      <!--<view class='item'>-->
+        <!--<view class='hd'>-->
+          <!--<view class='me-tag me-tag-1'>-->
+            <!--<image class='icon' src="/images/icon/warning-circle.png"></image>-->
+          <!--</view>-->
+          <!--<text class='title'>关于我们</text>-->
+        <!--</view>-->
+        <!--<view class='view-right'>-->
+          <!--<image class='icon' src="/images/icon/right.png"></image>-->
+        <!--</view>-->
+      <!--</view>-->
+    <!--</navigator>-->
+    <!--<navigator url='/pages/post-Tdetail/post-Tdetail?id=153890258636300&title=打赏赞助'>-->
+      <!--<view class='item'>-->
+        <!--<view class='hd'>-->
+          <!--<view class='me-tag me-tag-5'>-->
+            <!--<image class='icon' src="/images/icon/like.png"></image>-->
+          <!--</view>-->
+          <!--<text class='title'>打赏赞助</text>-->
+        <!--</view>-->
+        <!--<view class='view-right'>-->
+          <!--<image class='icon' src="/images/icon/right.png"></image>-->
+        <!--</view>-->
+      <!--</view>-->
+    <!--</navigator>-->
+
+    <!--<navigator url='feedback/feedback'>-->
+    <!--<view class='item'>-->
+    <!--<view class='hd'>-->
+    <!--<view class='me-tag me-tag-3'>-->
+    <!--<image class='icon' src="/images/icon/warning-circle.png"></image>-->
+    <!--</view>-->
+    <!--<text class='title'>问题反馈</text>-->
+    <!--</view>-->
+    <!--<view class='view-right'>-->
+    <!--<image class='icon' src="/images/icon/right.png"></image>-->
+    <!--</view>-->
+    <!--</view>-->
+    <!--</navigator>-->
+
+  </view>
+
+  <!--<view class="serve">-->
+    <!--<view slot="content">-->
+      <!--<i-tab-bar bindchange="handleTabChange">-->
+      <!--<i-tab-bar-item key="trade" icon="financial_fill" current-icon="homepage_fill" title="交易中心"></i-tab-bar-item>-->
+      <!--<i-tab-bar-item key="menber" icon="group" current-icon="group_fill" title="VIP会员"></i-tab-bar-item>-->
+      <!--<i-tab-bar-item key="notice" icon="remind" current-icon="remind_fill" count="{{noticeNum}}" title="通知"></i-tab-bar-item>-->
+      <!--</i-tab-bar>-->
+    <!--</view>-->
+  <!--</view>-->
+
+
+</view>

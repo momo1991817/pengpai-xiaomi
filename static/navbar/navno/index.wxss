@@ -1,0 +1,30 @@
+.container {
+    box-sizing: border-box;
+    height: 100%;
+    background: #5cadff;
+    color: #fff;
+}
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #5cadff;
+    z-index: 1000;
+}
+.status-bar {
+    background: #5cadff;
+}
+.title-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.title-bar>.icon {
+    margin-left: 5px;
+}
+.title-bar>.title {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 33px;
+}

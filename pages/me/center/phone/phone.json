@@ -1,0 +1,13 @@
+{
+  "navigationBarTitleText": "修改手机绑定",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "nav-bar": "../../../../static/navbar/index",
+    "i-input": "../../../../static/iview/input/index",
+    "i-button": "../../../../static/iview/button/index",
+    "i-panel": "../../../../static/iview/panel/index",
+    "i-notice-bar": "../../../../static/iview/notice-bar/index",
+    "i-toast": "../../../../static/iview/toast/index",
+     "i-icon": "../../../../static/iview/icon/index"
+  }
+}

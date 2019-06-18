@@ -1,0 +1,243 @@
+<view class="schedule">
+    <nav-bar navbar-title='我的日程' navbar-icon="{{true}}" ></nav-bar>
+
+
+    <!--日期选择部分-->
+    <!--<view class="scroll" style="top:{{titleBarHeight+statusBarHeight}}px">-->
+        <!--<scroll-view class="scrollBar" scroll-x="true" scroll-with-animation="true" bindscrolltolower="bindscroll">-->
+            <!--<view class="time-list {{current == index? 'active':''}}"  bindtap="changeTab" data-id="{{index}}" data-date="{{item.year}}" wx:for="{{list}}" wx:key="key">-->
+                <!--<view class="week">{{item.week}}</view>-->
+                <!--<view class="date">{{item.date}}</view>-->
+            <!--</view>-->
+        <!--</scroll-view>-->
+    <!--</view>-->
+
+    <view class="calender" style="top:{{(titleBarHeight - 28)/2+statusBarHeight}}px">
+        <view class="list" style="margin-left: 10px;">
+            <navigator url="calender/calender">
+                <i-icon type="activity_fill"  size="28" color="#fff"/>
+            </navigator>
+        </view>
+        <!--<view class="list">-->
+            <!--<navigator url="addSchedule/addSchedule">-->
+              <!--<view class="add"><i-icon type="add" color="#ffff" size="20"/></view>-->
+            <!--</navigator>-->
+        <!--</view>-->
+
+    </view>
+
+
+   <view class="timeline">
+       <view class="timeline-item">
+           <view class="timeline-item-tail"></view>
+           <view class="timeline-item-content" style="height: 16px;">
+           </view>
+       </view>
+
+
+       <view>
+           <view class="timeline-item">
+               <view class="timeline-item-tail"></view>
+               <view class="timeline-item-head timeline-item-head-yellow"></view>
+               <view class="timeline-item-content" style="top:-6px;">
+                   <view class="timeline-item-content-box-time timeline-item-content-box-time-yellow">
+                      <view>{{scheduleDate}}</view>
+                   </view>
+               </view>
+           </view>
+
+           <view class="timeline-item" wx:if="{{showNoSchedule&&!firstLogin}}">
+               <view class="timeline-item-tail"></view>
+               <view class="timeline-item-head timeline-item-head-red"></view>
+               <view class="timeline-item-content" style="top:-6px;">
+                   <view class="timeline-item-content-box-time timeline-item-content-box-time-red">
+                       <view>您今天没有行程！</view>
+                   </view>
+               </view>
+           </view>
+
+           <view class="timeline-item" wx:for="{{list}}" wx:key  wx:if="{{!showNoSchedule}}">
+               <view class="timeline-item-tail"></view>
+               <view class="timeline-item-head timeline-item-head-blue"></view>
+               <view class="timeline-item-content">
+                   <view class="timeline-item-content-box">
+                       <view class="timeline-time">
+                           <i-icon type="clock" color="#2d8cf0" size="20"/><view class="timeline-clock">{{item.departureTime}}</view>
+                           <view class="time-delete">
+                               <i-icon type="trash" size="16"/><view bindtap="delectSchedule" data-id="{{item.pnrNo}}" data-date="{{item.flightDate}}" data-flightno="{{item.flightNo}}">删除</view>
+                           </view>
+                       </view>
+                       <view class="aline-content">
+                           <view class="flightNum">{{item.airLineShortName}}{{item.flightNo}}</view>
+
+                           <view class="cabin">{{item.code}}舱</view>
+                       </view>
+                       <view class="timeline-text">
+                           <view class="detail clearfix">
+                               <view class="airline">
+                                   <view class="time">
+                                       {{item.departureTime}}
+                                   </view>
+                                   <view class="airport">
+                                       {{item.depCityName}}
+                                   </view>
+                               </view>
+
+                               <view class="icons">
+                                   <image src="/images/icons/icons.png"></image>
+                               </view>
+
+                               <view class="airline">
+                                   <view class="time">
+                                       {{item.arrivalTime}}
+                                   </view>
+                                   <view class="airport">
+                                       {{item.arrCityName}}
+                                   </view>
+                               </view>
+
+                           </view>
+
+                       </view>
+
+                       <view class="timeline-passenger">
+                           <view class="passenger" wx:for="{{item.passengers}}" wx:key  wx:for-item="items" wx:for-index="indexs">
+                               <i-icon type="mine_fill" size="20" color="#808695"/>{{items}}
+                           </view>
+                       </view>
+
+                   </view>
+               </view>
+           </view>
+
+           <view wx:if="{{firstLogin}}">
+               <view class="timeline-item">
+                   <view class="timeline-item-tail"></view>
+                   <view class="timeline-item-head timeline-item-head-red"></view>
+                   <view class="timeline-item-content" style="top:-6px;">
+                       <view class="timeline-item-content-box-time timeline-item-content-box-time-red">
+                           <view>以下为日程管理事例图！</view>
+                       </view>
+                   </view>
+               </view>
+
+               <view class="timeline-item">
+                   <view class="timeline-item-tail"></view>
+                   <view class="timeline-item-head timeline-item-head-blue"></view>
+                   <view class="timeline-item-content">
+                       <view class="timeline-item-content-box">
+                           <view class="timeline-time">
+                               <i-icon type="clock" color="#2d8cf0" size="20"/><view class="timeline-clock">12:00</view>
+                               <!--<view class="time-delete">-->
+                                   <!--<i-icon type="trash" size="16"/><view>删除</view>-->
+                               <!--</view>-->
+
+
+                           </view>
+                           <view class="aline-content">
+                               <view class="flightNum">国航CA887</view>
+
+                               <view class="cabin">公务舱</view>
+                           </view>
+                           <view class="timeline-text">
+                               <view class="detail clearfix">
+                                   <view class="airline">
+                                       <view class="time">
+                                           12:00
+                                       </view>
+                                       <view class="airport">
+                                           北京首都
+                                       </view>
+                                   </view>
+
+                                   <view class="icons">
+                                       <image src="/images/icons/icons.png"></image>
+                                   </view>
+
+                                   <view class="airline">
+                                       <view class="time">
+                                           09:00
+                                       </view>
+                                       <view class="airport">
+                                           洛杉矶
+                                       </view>
+                                   </view>
+
+                               </view>
+
+                           </view>
+                           <view class="timeline-passenger">
+                               <view class="passenger"><i-icon type="mine_fill" size="20" color="#808695"/>ZHANG/SAN</view>
+                           </view>
+
+                       </view>
+                   </view>
+               </view>
+
+               <view class="timeline-item">
+                   <view class="timeline-item-tail"></view>
+                   <view class="timeline-item-head timeline-item-head-blue"></view>
+                   <view class="timeline-item-content">
+                       <view class="timeline-item-content-box">
+                           请在PC端添加行程！
+                           <!--<view class="timeline-time">-->
+                               <!--<i-icon type="clock" color="#2d8cf0" size="20"/> 20:10-->
+                               <!--<view class="passenger">Li/Si</view>-->
+                           <!--</view>-->
+                           <!--<view class="aline-content">-->
+                               <!--<view class="flightNum">美联航UA199</view>-->
+
+                               <!--<view class="cabin">公务舱</view>-->
+                           <!--</view>-->
+                           <!--<view class="timeline-text">-->
+                               <!--<view class="detail">-->
+                                   <!--<view class="airline">-->
+                                       <!--<view class="time">-->
+                                           <!--20:10-->
+                                       <!--</view>-->
+                                       <!--<view class="airport">-->
+                                           <!--上海浦东-->
+                                       <!--</view>-->
+                                   <!--</view>-->
+
+                                   <!--<view class="icons">-->
+                                       <!--<image src="/images/icons/icons.png"></image>-->
+                                   <!--</view>-->
+
+                                   <!--<view class="airline">-->
+                                       <!--<view class="time">-->
+                                           <!--16:50-->
+                                       <!--</view>-->
+                                       <!--<view class="airport">-->
+                                           <!--洛杉矶-->
+                                       <!--</view>-->
+                                   <!--</view>-->
+
+                               <!--</view>-->
+
+                           <!--</view>-->
+                       </view>
+                   </view>
+               </view>
+           </view>
+
+
+       </view>
+
+
+   </view>
+
+
+    <i-modal title="删除确认" visible="{{ visible }}"  actions="{{actions}}" bind:click="handleAction">
+        <view class="actionsModal">
+            <!--<view > 确定删除该日程？</view>-->
+            <view>删除后数据无法恢复！</view>
+        </view>
+
+    </i-modal>
+
+
+
+    <i-toast id="toast" />
+
+</view>

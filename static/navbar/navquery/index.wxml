@@ -1,0 +1,33 @@
+<view class="container" style="padding-top:{{statusBarHeight+titleBarHeight}}px">
+    <view class="header">
+        <view class="status-bar" style="height:{{statusBarHeight}}px" ></view>
+        <view class="title-bar" style="height:{{titleBarHeight}}px">
+            <view class="icon"  bindtap='goBack'>
+                <i-icon type="return" size="28" color="#fff" />
+            </view>
+            <view class="title" bindtap="changeVolage">
+                <view>
+                    {{city1}} - {{city2}}
+                    <i-icon type="unfold" size="24" color="#fff"  wx:if="{{!showView&&volage}}"/>
+                    <i-icon type="packup" size="24" color="#fff" wx:if="{{showView&&volage}}"/>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class="content" wx:if="{{showView&&volage}}" style="top:{{totalH}}px">
+        <view class="list" >
+            <i-panel class="cell-panel-demo" >
+                <i-cell-group>
+                    <i-cell title="{{startCity}}-{{endCity}}" bind:click="airlineChange" data-city1="{{startCity}}" data-city2="{{endCity}}"></i-cell>
+                    <i-cell title="{{endCity}}-{{startCity}}" bind:click="airlineChange" data-city1="{{endCity}}" data-city2="{{startCity}}"></i-cell>
+                </i-cell-group>
+            </i-panel>
+        </view>
+
+        <view class="mask" style="top:{{maskTop}}px" bindtap="bindmaskClick">
+
+        </view>
+    </view>
+
+</view>

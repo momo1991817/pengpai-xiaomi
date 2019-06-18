@@ -1,0 +1,69 @@
+<nav-bar navbar-title='监控预警' navbar-icon="{{true}}"></nav-bar>
+
+<view class="reserve" wx:if="{{hasdata}}">
+    <view class="content">
+        <navigator url='../detail/detail?id={{item.orderId}}' wx:for="{{list}}" wx:key="key">
+            <view class="list">
+                <view class="header">
+                    <text> {{item.date}}</text>
+                    <view class="title">
+                        {{item.type==0?'余票订单':'降舱订单'}}
+                    </view>
+                </view>
+                <view class="detail clearfix">
+                    <view class="airline">
+                        <view class="time">
+                            {{item.depTime}}
+                        </view>
+                        <view class="airport">
+                            {{item.depCityName}}
+                        </view>
+                    </view>
+
+                    <view class="icons">
+                        <image src="/images/icons/icon.png"></image>
+                    </view>
+
+                    <view class="airline">
+                        <view class="time">
+                           {{item.arrTime}}
+                        </view>
+                        <view class="airport">
+                            {{item.arrCityName}}
+                        </view>
+                    </view>
+
+                </view>
+                <view class="footer">
+                    <view class="airline">
+                        {{item.airLineShortName}}{{item.flightNo}}
+                    </view>
+                    <view class="seat">
+                        {{item.seat}}
+                    </view>
+                    <view class="ticket">
+                        {{item.ticket}}
+                        <!--{{item.ticket=='票量充足'?item.ticket:'余票'+item.ticket+'张'}}-->
+                    </view>
+
+                </view>
+            </view>
+        </navigator>
+    </view>
+</view>
+
+<view class="nodata" wx:if="{{!hasdata&&!showLoading}}">
+    <view>
+        <image src="../../images/icons/search.png"></image>
+        <view>您还没有订单哦</view>
+    </view>
+</view>
+
+<!--用户下拉刷新时显示-->
+<view wx:if="{{showLoading}}">
+    <i-load-more />
+</view>
+
+<view wx:if="{{showInfo&&!showLoading}}" style="padding-top: 15px;">
+    <i-load-more tip="没有更多数据" loading="{{ false }}" />
+</view>

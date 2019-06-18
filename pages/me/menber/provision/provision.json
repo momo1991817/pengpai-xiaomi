@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText":"搜索列表页面",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "nav-bar": "../../../../static/navbar/index",
+    "i-icon": "../../../../static/iview/icon/index",
+    "i-modal": "../../../../static/iview/modal/index",
+    "i-row": "../../../../static/iview/row/index",
+    "i-col": "../../../../static/iview/col/index"
+  }
+}

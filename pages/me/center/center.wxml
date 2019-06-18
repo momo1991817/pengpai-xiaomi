@@ -1,0 +1,87 @@
+<view class="center">
+    <nav-bar navbar-title='个人中心' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+    <view class="content">
+        <i-panel title="基础信息"></i-panel>
+
+        <i-panel class="cell-panel-demo" >
+            <i-cell title="头像" >
+                <image src="{{avatarUrl}}" slot="footer"></image>
+            </i-cell>
+        </i-panel>
+
+        <i-panel class="cell-panel-demo" >
+            <i-cell title="昵称" value="{{nickName}}"></i-cell>
+        </i-panel>
+
+        <i-panel class="cell-panel-demo" >
+            <i-cell title="用户名" value="{{userName}}"></i-cell>
+        </i-panel>
+
+
+        <!--<i-panel class="cell-panel-demo" >-->
+            <!--<i-cell title="帐号(为网页版登录帐号)" value="{{userId}}"></i-cell>-->
+        <!--</i-panel>-->
+
+
+        <i-panel title="帐号绑定"></i-panel>
+
+        <view wx:if="{{bindCompany}}">
+            <i-panel class="cell-panel-demo" >
+                <i-cell title="公司" value="{{company}}">
+                    <i-icon type="homepage" size="22" color="#80848f" slot="icon"/>
+                </i-cell>
+            </i-panel>
+        </view>
+
+        <view wx:else>
+            <i-panel class="cell-panel-demo" >
+                <i-cell title="公司" value="{{company}}" is-link url="/pages/me/center/company/company">
+                    <i-icon type="homepage" size="22" color="#80848f" slot="icon"/>
+                </i-cell>
+            </i-panel>
+        </view>
+
+
+        <i-panel class="cell-panel-demo" >
+            <i-cell title="手机" value="{{phone}}" is-link url="{{phone=='绑定'?'/pages/register/register':'/pages/me/center/phone/phone?phone='+phone}}">
+                <i-icon type="mobilephone_fill" size="22" color="#80848f" slot="icon" />
+            </i-cell>
+        </i-panel>
+
+        <i-panel class="cell-panel-demo" >
+            <i-cell title="邮箱" value="{{email}}" is-link url="/pages/me/center/email/email?email={{email}}">
+                <i-icon type="mail_fill" size="22" color="#80848f" slot="icon"/>
+            </i-cell>
+        </i-panel>
+
+
+        <view class="btn">
+            <i-button bind:click="bindPwdClick" type="primary">修改密码</i-button>
+
+
+        </view>
+
+        <view class="formId">
+            <form report-submit="true" bindsubmit="createFormId" >
+                <button form-type="submit" hover-class="none" type="primary">自动产生推送码</button>
+            </form>
+        </view>
+
+
+
+
+        <!--<view class="btn">-->
+            <!--<i-button bind:click="handleClick" type="warning">退出登录</i-button>-->
+        <!--</view>-->
+
+
+
+        <i-panel></i-panel>
+
+
+        <!--<i-modal title="标题" visible="{{ visible }}" bind:ok="handleOut" bind:cancel="handleClose">-->
+            <!--<view>确认退出当前帐号？</view>-->
+        <!--</i-modal>-->
+
+    </view>
+</view>

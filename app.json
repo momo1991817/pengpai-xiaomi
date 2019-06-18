@@ -1,0 +1,88 @@
+{
+  "pages": [
+    "pages/launch/launch",
+    "pages/home/home",
+    "pages/ticket/ticket",
+    "pages/downgrade/downgrade",
+    "pages/modal/modal",
+    "pages/order/order",
+    "pages/query/query",
+    "pages/city/city",
+    "pages/detail/detail",
+    "pages/messagedetail/detail",
+
+    "pages/register/register",
+    "pages/register/user/user",
+
+
+    "pages/search/query",
+    "pages/calender/calender",
+    "pages/list/list",
+    "pages/schedule/schedule",
+    "pages/schedule/calender/calender",
+    "pages/schedule/addSchedule/addSchedule",
+    "pages/me/me",
+    "pages/me/menber/menber",
+    "pages/me/menber/provision/provision",
+    "pages/me/trade/trade",
+    "pages/me/about/about",
+    "pages/me/install/install",
+    "pages/me/center/center",
+    "pages/me/center/phone/phone",
+    "pages/me/center/email/email",
+    "pages/me/center/company/company",
+    "pages/me/center/password/password",
+    "pages/me/notice/notice",
+    "pages/me/notice/detail/detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#479de6",
+    "navigationBarTitleText": "澎湃小蜜",
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "position": "bottom",
+    "color": "#757982",
+    "selectedColor": "#138cff",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/icons/home_gray.png",
+        "selectedIconPath": "images/icons/home.png"
+      },
+      {
+        "pagePath": "pages/downgrade/downgrade",
+        "text": "降舱监控",
+        "iconPath": "images/icons/data_gray.png",
+        "selectedIconPath": "images/icons/data.png"
+      },
+      {
+        "pagePath": "pages/ticket/ticket",
+        "text": "监控预警",
+        "iconPath": "images/icons/reserve_grey.png",
+        "selectedIconPath": "images/icons/reserve.png"
+      },
+      {
+        "pagePath": "pages/schedule/schedule",
+        "text": "日程管理",
+        "iconPath": "images/icons/daily_grey.png",
+        "selectedIconPath": "images/icons/daily.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "个人中心",
+        "iconPath": "images/icons/me_gray.png",
+        "selectedIconPath": "images/icons/me.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 60000,
+    "connectSocket": 60000,
+    "downloadFile": 100000
+  }
+}

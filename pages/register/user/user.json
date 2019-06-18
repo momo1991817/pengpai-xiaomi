@@ -1,0 +1,19 @@
+{
+  "navigationBarTitleText":"注册",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "nav-bar": "../../../static/navbar/index",
+    "i-input": "../../../static/iview/input/index",
+    "i-button": "../../../static/iview/button/index",
+    "i-panel": "../../../static/iview/panel/index",
+    "i-notice-bar": "../../../static/iview/notice-bar/index",
+    "i-toast": "../../../static/iview/toast/index",
+    "i-checkbox-group": "../../../static/iview/checkbox-group/index",
+    "i-checkbox": "../../../static/iview/checkbox/index",
+    "i-collapse": "../../../static/iview/collapse/index",
+    "i-collapse-item": "../../../static/iview/collapse-item/index",
+    "i-icon": "../../../static/iview/icon/index",
+    "i-message": "../../../static/iview/message/index",
+    "i-spin": "../../../static/iview/spin/index"
+  }
+}

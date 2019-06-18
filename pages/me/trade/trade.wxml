@@ -1,0 +1,27 @@
+<view class='center'>
+    <nav-bar navbar-title='交易记录' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+    <view class="content" wx:if="{{hasData}}">
+        <view class="list" wx:for="{{list}}" wx:key>
+            <view>
+                <image src="../../../images/icons/dollers.png"></image>
+            </view>
+            <view>
+                <view class="title">{{item.name}}</view>
+                <view class="time">{{item.date}}</view>
+            </view>
+
+            <view>
+               {{item.money}}
+            </view>
+        </view>
+    </view>
+
+
+    <view class="nodata" wx:else>
+        <view>
+            <image src="../../../images/icons/trade.png"></image>
+            <view> 您还没有任何交易哦</view>
+        </view>
+    </view>
+</view>

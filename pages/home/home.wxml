@@ -1,0 +1,188 @@
+<view class="home" >
+    <nav-bar navbar-title='首页' navbar-icon="{{true}}"></nav-bar>
+
+    <image class='tab' src='/images/logo2.jpg' ></image>
+
+    <i-notice-bar icon="systemprompt" loop>
+        若订单进入监控服务，监控频率的更新时间为每5分钟/次.
+    </i-notice-bar>
+
+
+    <view class="tab">
+        <i-tabs current="{{ current }}" bindchange="handlMethodsChange">
+            <i-tab key="1" title="航线"></i-tab>
+            <i-tab key="2" title="航班号"></i-tab>
+        </i-tabs>
+    </view>
+
+    <view class="content">
+
+        <!--城市-->
+        <view class="info clearfix">
+            <view class="info-fly airlineBorder"  bind:touchstart="handleOpen1">
+                <!--<i-input value="{{ city1 }}" disabled />-->
+                <!--<input type="text" value="{{city1}}" disabled/>-->
+                {{city1}}
+            </view>
+            <view class="info-icon" bindtap="exchangeCity">
+                <!--<i-icon type="enterinto" size="28" color="#80848f" />-->
+                <image src="../../images/icons/icon.png"></image>
+            </view>
+            <view class="info-fly airlineBorder"  bind:touchstart="handleOpen2">
+                <!--<input type="text" value="{{city2}}" disabled/>-->
+                {{city2}}
+            </view>
+        </view>
+
+
+        <!--航班号查询方式-->
+        <view class="flightNum" wx:if="{{current==2}}">
+            <!--航司-->
+            <view class="info clearfix">
+                <view class="info-fly airlineBorder" >
+                    <picker bindchange="bindPickerAirChange" value="{{index}}" range="{{airlines}}">
+                        {{airlines[index]}} <view class="info-title" wx:if="{{volage}}"> 去</view>
+                    </picker>
+                </view>
+                <view class="info-icon" >
+
+                </view>
+                <view class="info-fly airlineBorder" >
+                    <view class="single" wx:if="{{!volage}}" bindtap="exchangeVolage">
+                        <view class="info-add">+</view>
+                        <view class="info-name">返程航司</view>
+                    </view>
+                    <veiw class="double" wx:else>
+                        <view class="info-close" bindtap="exchangeVolage"><i-icon type="delete" size="21" color="#80848f"/></view>
+                        <view class="picker">
+                            <picker bindchange="bindRAirChange" value="{{Rindex}}" range="{{Rairlines}}">
+                                {{Rairlines[Rindex]}} <view class="info-title" wx:if="{{volage}}"> 去</view>
+                            </picker>
+                        </view>
+                    </veiw>
+                </view>
+
+            </view>
+
+
+            <!--航班号-->
+            <view class="info clearfix">
+                <view class="info-fly airlineBorder" >
+                    <picker bindchange="bindPickerNumChange" value="{{flightNumber[flightNumberIndex]}}" range="{{flightNumber}}">
+                       {{ flightNumber[flightNumberIndex] }} <view class="info-title" wx:if="{{volage}}"> 去</view>
+                    </picker>
+                </view>
+                <view class="info-icon" >
+
+                </view>
+                <view class="info-fly airlineBorder" >
+                    <view class="single" wx:if="{{!volage}}" bindtap="exchangeVolage">
+                        <view class="info-add">+</view>
+                        <view class="info-name">返程航班号</view>
+                    </view>
+                    <veiw class="double" wx:else>
+                        <view class="info-close" bindtap="exchangeVolage"><i-icon type="delete" size="21" color="#80848f"/></view>
+                        <view class="picker">
+                            <picker bindchange="bindPickerRNumChange" value="{{RflightNumber[RflightNumberIndex]}}" range="{{RflightNumber}}">
+                                {{ RflightNumber[RflightNumberIndex] }}<view class="info-title">返</view>
+                            </picker>
+                        </view>
+                    </veiw>
+
+
+                </view>
+
+            </view>
+
+        </view>
+
+
+        <!--舱位-->
+        <view class="info clearfix">
+            <view class="info-fly airlineBorder" >
+                <picker bindchange="bindPickerSeatChange" value="{{seats[seatIndex]}}" range="{{seats}}">
+                    {{seats[seatIndex]}}<view class="info-title" wx:if="{{volage}}">去</view>
+                </picker>
+            </view>
+            <view class="info-icon" >
+
+            </view>
+            <view class="info-fly airlineBorder" >
+                <view class="single" wx:if="{{!volage}}" bindtap="exchangeVolage">
+                    <view class="info-add">+</view>
+                    <view class="info-name">返程舱位</view>
+                </view>
+                <veiw class="double" wx:else>
+                    <view class="info-close" bindtap="exchangeVolage"><i-icon type="delete" size="21" color="#80848f"/></view>
+                    <view class="picker">
+                        <picker bindchange="bindPickerRSeatChange" value="{{Rseats[RseatIndex]}}" range="{{Rseats}}">
+                            {{Rseats[RseatIndex]}}<view class="info-title">返</view>
+                        </picker>
+                    </view>
+                </veiw>
+            </view>
+        </view>
+
+        <!--时间-->
+        <view class="info clearfix">
+            <view class="info-fly airlineBorder">
+                <picker
+                        mode="date"
+                        value="{{startdate}}"
+                        start="{{nowDate}}"
+                        end="2050-01-01"
+                        bindchange="bindStartDateChange">
+                    {{startdate}}<view class="info-title" wx:if="{{volage}}">去</view>
+                </picker>
+            </view>
+            <view class="info-icon" bindtap="exchangeCity">
+
+            </view>
+            <view class="info-fly airlineBorder date">
+                <view class="single" wx:if="{{!volage}}" bindtap="exchangeVolage">
+                    <view class="info-add">+</view>
+                    <view class="info-name">返程时间</view>
+                </view>
+                <veiw class="double" wx:else>
+                    <view class="info-close" bindtap="exchangeVolage"><i-icon type="delete" size="21" color="#80848f"/></view>
+                    <view class="picker">
+                        <picker
+                                mode="date"
+                                value="{{rebackStartdate}}"
+                                start="{{nowDate}}"
+                                end="2050-01-01"
+                                bindchange="bindrebackStartDateChange"
+                        >
+                            {{rebackStartdate}}
+                            <view class="info-title">返</view>
+                        </picker>
+                    </view>
+                </veiw>
+
+
+            </view>
+        </view>
+
+
+        <view class="btn">
+            <!--<i-button bind:click="submitClick" type="primary">提交</i-button>-->
+            <form report-submit="true" bindsubmit="submitClick" >
+                   <button form-type="submit" hover-class="none">查询</button>
+            </form>
+        </view>
+
+        <!--消息提醒-->
+        <i-toast id="toast" />
+        <i-message id="message" />
+
+    </view>
+
+    <view class="navitageto" style="top:{{statusBarHeight+(titleBarHeight- 27)/2}}px" bindtap="jampTo">
+        我的订单
+    </view>
+
+    <i-toast id="toast" />
+
+</view>
+
+

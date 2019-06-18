@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "关于项目",
+  "usingComponents": {
+    "nav-bar": "../../static/navbar/index",
+    "i-panel": "../../static/iview/panel/index",
+    "i-icon": "../../static/iview/icon/index",
+    "i-divider": "../../static/iview/divider/index",
+    "i-spin": "../../static/iview/spin/index",
+    "i-toast": "../../static/iview/toast/index",
+    "i-alert": "../../static/iview/alert/index"
+  }
+}

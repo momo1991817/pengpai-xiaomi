@@ -1,0 +1,263 @@
+.header-fixed {
+    background:#5CADFF;
+
+}
+
+.content{
+    background: #fff;
+}
+.header-fixed>.date>.list {
+   display: inline-block;
+   width: 14.28%;
+   text-align: center;
+   padding: 10px 0;
+    color:#fff;
+}
+.content title{
+    padding: 10px;
+    /*color: #fff;*/
+    font-size: 20px;
+    text-align: center;
+    /*background: #1751AD;*/
+}
+.header-fixed {
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.calender-list{
+    padding: 10px;
+}
+.content .calender-list:not(:last-child){
+    border-bottom: 1px solid #F7F5F4;
+}
+.content .title{
+    font-size: 20px;
+    text-align: center;
+}
+.date-box{
+    position: relative;
+    display: inline-block;
+    width: 14.285%;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 14px 0;
+    color: #495060;
+}
+
+.date-box .date{
+    height: 48px;
+    width: 48px;
+    /*line-height: 28px;*/
+    text-align: center;
+}
+.date-box .date.current{
+    background: #22A7F6;
+    color: #fff;
+    /*border: 1px solid #ed3f14;*/
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%
+}
+.date-box.date-past{
+    color:#bbbec4;
+    border: none;
+    /*visibility: hidden;*/
+}
+.date-box .day{
+    height: 26px;
+}
+.date-box .cabin {
+    font-size: 8px;
+    height: 10px;
+    font-weight: bold;
+}
+.date-box .cabin.isNum{
+    color: #ff9900;
+}
+
+
+.calender{
+    position: fixed;
+    left: 40px;
+    z-index: 1000;
+}
+.calender>view{
+    float: left;
+}
+
+.searchIcon{
+    /*background: #dddee1;*/
+    border-radius: 14px;
+    margin-left: 10px;
+}
+.searchSelect{
+    margin-left: 5px;
+}
+.searchSelect image{
+    width: 24px;
+    height: 24px;
+}
+/***********航司筛选框*************/
+
+.info,.info-fly{ height: 40px;}
+.info >view {float: left;}
+.info >view.info-fly {
+    width: 42%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    border-bottom: 1px solid #dddee1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+}
+.info >view.info-fly>text{
+    height: 100%;
+    /*padding: 7px 0;*/
+}
+.info>view.info-icon {
+    width: 16%;
+    height: 30px;
+    text-align: center;
+    margin-top: 4px;
+}
+.info>view.info-icon>image{
+    width: 30px;
+    height: 30px;
+}
+.airlineBorder{
+    padding: 7px 15px;
+    border-bottom: 1px solid #dddee1;
+}
+.btn{
+    width: 96%;
+    margin: 0 auto;
+}
+.btn button {
+    background: #2D8CF0;
+    margin: 20px 0 10px;
+    color: #fff;
+}
+
+
+
+
+.modal-mask {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(0,0,0,.7);
+    z-index:1001;
+    transition:all .2s ease-in-out;
+    opacity:1;
+}
+
+.modal {
+    position:fixed;
+    overflow:auto;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    height:100%;
+    z-index:1001;
+    display:flex;
+    outline:0;
+    -webkit-box-align:center;
+    align-items:center;
+    -webkit-box-pack:center;
+    justify-content:center;
+    transform:translateZ(1px);
+    /*opacity:1;*/
+    /*visibility:hidden;*/
+
+}
+
+
+.modal-content {
+    border-radius:7px;
+    padding-top:10px;
+    position:relative;
+    background-color:#fff;
+    border:0;
+    background-clip:padding-box;
+    text-align:center;
+    width: 90%;
+    overflow:hidden;
+
+}
+.modal-title {
+    padding:6px 15px 20px;
+    margin:0;
+    font-size:18px;
+    line-height:1;
+    color:#1c2438;
+    text-align:center;
+
+}
+.modal-title>.modal-title-search{
+    display: inline-block;
+    font-weight: bold;
+    margin-right: -26px;
+}
+.modal-title>view.close{
+    float: right;
+    padding-right: 10px;
+}
+.search-title{
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 18px;
+    color: #fff;
+}
+
+.container {
+    box-sizing: border-box;
+    height: 100%;
+    background: #5cadff;
+    color: #fff;
+}
+
+
+.btn .errorInfo{
+    color: #ed4014;
+    margin-bottom: 15px;
+    font-size: 12px;
+    text-align: left;
+}
+
+
+/*添加图片提醒*/
+.nopower{
+    background: #f8f8f9;
+    min-height: 100vh;
+}
+.nopower>view>image{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+}
+.nopower>view{
+    width: 160px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -80px;
+    margin-top: -50px;
+    text-align: center;
+    color: #80848f;
+}
+
+.calender-attention{
+    padding: 10px;
+    font-size: 14px;
+    color: #ff9900;
+}

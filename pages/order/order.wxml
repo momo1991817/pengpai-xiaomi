@@ -1,0 +1,103 @@
+
+<nav-bar navbar-title='订单中心' navbar-icon="{{false}}"  bind:myBackevent="onBackEvent"></nav-bar>
+
+<view class="tab" style="top:{{statusBarHeight+titleBarHeight}}px;">
+    <i-tabs current="{{ current }}" bindchange="handleChange">
+        <i-tab key="1" title="全部订单" ></i-tab>
+        <i-tab key="2" title="监控成功"></i-tab>
+        <i-tab key="3" title="监控失败"></i-tab>
+    </i-tabs>
+</view>
+
+
+<view class="order" wx:if="{{hasdata}}">
+
+    <view class="content" wx:if="{{!showLoading}}">
+       <view class="content">
+
+            <view class="list" wx:for="{{list}}" wx:key="key">
+                   <i-swipeout  i-class="i-swipeout-demo-item" >
+                       <view slot="content" class="list-body">
+                           <navigator url='../detail/detail?id={{item.orderId}}' >
+                               <view class="header clearfix">
+                                   <text>{{item.date}}</text>
+                                   <view class="title">
+                                       {{item.type==0?'余票订单':'降舱订单'}}
+                                   </view>
+                               </view>
+                               <view class="detail clearfix">
+                                   <view class="airline">
+                                       <view class="time">
+                                           {{item.depTime}}
+                                       </view>
+                                       <view class="airport">
+                                           {{item.depCityName}}
+                                       </view>
+
+                                   </view>
+                                   <view class="icons">
+                                       <image src="/images/icons/icon.png"></image>
+                                   </view>
+                                   <view class="airline">
+                                       <view class="time">
+                                           {{item.arrTime}}
+                                       </view>
+                                       <view class="airport">
+                                           {{item.arrCityName}}
+                                       </view>
+                                   </view>
+                               </view>
+                               <view class="footer">
+                                   <view class="airline">
+                                       {{item.airLineShortName}}{{item.flightNo}}
+                                   </view>
+                                   <view class="seat">
+                                       {{item.seat}}
+                                   </view>
+                                   <view class="ticket">
+                                       {{item.ticket}}
+                                   </view>
+
+                               </view>
+                           </navigator>
+                       </view>
+                       <view slot="button" class="i-swipeout-demo-button-group">
+                           <view class="i-swipeout-demo-button" style="width:50%" bindtap="OpenActionsTap" data-id="{{item.orderId}}">删除</view>
+                           <view class="i-swipeout-demo-button" style="width:50%" bindtap="CloseActionsTap">返回</view>
+                       </view>
+                   </i-swipeout>
+
+                   <i-action-sheet visible="{{ visible }}" actions="{{ actions }}" show-cancel bind:cancel="handleCancel" bind:click="handleClickItem" mask-closable="{{ false }}">
+                       <view slot="header" style="padding: 16px">
+                           <view style="color: #444;font-size: 16px">确定删除吗？</view>
+                           <text> 删除后数据无法恢复</text>
+                       </view>
+                   </i-action-sheet>
+               </view>
+
+       </view>
+   </view>
+    <view wx:if="{{showLoadmore}}">
+        <i-load-more />
+    </view>
+
+    <view wx:if="{{showLoading}}">
+        <i-spin fix></i-spin>
+    </view>
+
+   <view wx:if="{{showInfo}}">
+       <i-load-more tip="没有更多数据" loading="{{ false }}" />
+   </view>
+
+</view>
+
+
+<view class="nodata" wx:else>
+    <view>
+        <image src="../../images/icons/search.png"></image>
+        <view> 您还没有该订单哦！</view>
+    </view>
+</view>
+
+<i-toast id="toast" />
+

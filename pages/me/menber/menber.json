@@ -1,0 +1,12 @@
+{
+    "navigationBarTitleText": "会员",
+    "usingComponents": {
+        "nav-bar": "../../../static/navbar/index",
+        "i-icon": "../../../static/iview/icon/index",
+        "i-button": "../../../static/iview/button/index",
+        "i-row": "../../../static/iview/row/index",
+        "i-col": "../../../static/iview/col/index",
+        "i-toast": "../../../static/iview/toast/index",
+        "i-modal": "../../../static/iview/modal/index"
+    }
+}

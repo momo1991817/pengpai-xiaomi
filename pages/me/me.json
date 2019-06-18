@@ -1,0 +1,15 @@
+{
+    "navigationBarTitleText": "我的",
+    "enablePullDownRefresh": false,
+    "usingComponents": {
+        "nav-bar": "../../static/navbar/index",
+        "i-cell": "../../static/iview/cell/index",
+        "i-panel": "../../static/iview/panel/index",
+        "i-icon": "../../static/iview/icon/index",
+        "i-card": "../../static/iview/card/index",
+        "i-tab-bar": "../../static/iview/tab-bar/index",
+        "i-tab-bar-item": "../../static/iview/tab-bar-item/index",
+        "i-notice-bar": "../../static/iview/notice-bar/index",
+        "i-badge": "../../static/iview/badge/index"
+    }
+}

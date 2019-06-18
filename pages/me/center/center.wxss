@@ -1,0 +1,22 @@
+.center {
+    background: #f8f8f9;
+}
+
+.center .content image{
+    width: 24px;
+    height: 24px;
+}
+.btn {
+    /*padding-bottom: 10px;*/
+}
+
+.formId{
+    margin: 10px;
+}
+.formId button {
+    background: #19be6b;
+    font-size: 14px;
+    border-radius:2px;
+    height:44px; 
+    line-height: 44px;
+}

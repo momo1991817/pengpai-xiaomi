@@ -1,0 +1,45 @@
+.schedule{
+    min-height: 100vh;
+    background: #5cadff;
+}
+.addSchedule{
+
+    padding-bottom: 20px;
+}
+
+.input_box{
+    background: #fff;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 15px 15px 50px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+.input_section{
+   margin-bottom: 10px;
+}
+.input_title{
+    color: #2b85e4;
+    font-size: 18px;
+}
+.input_text{
+    padding: 2px 5px;
+    border-bottom: 1px solid #e9eaec;
+}
+.input_text.input_error{
+    border-bottom-color: red;
+}
+.input_text >input{
+    height: 30px;
+}
+.input_box>button{
+    background: #5cadff;
+    color: #fff;
+    margin: 40px 0 0;
+}
+.input_box>button.active{
+    background: #ADD1F7;
+}

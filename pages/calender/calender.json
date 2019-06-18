@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "会员",
+    "usingComponents": {
+        "nav-bar": "../../static/navbar/index",
+        "nav-no": "../../static/navbar/navno/index",
+        "i-icon": "../../static/iview/icon/index",
+        "i-toast": "../../static/iview/toast/index"
+    }
+}

@@ -1,0 +1,69 @@
+<view class="register">
+    <nav-bar navbar-title='注册' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+    <!--<i-notice-bar icon="systemprompt">-->
+        <!--请先注册，有余票会通过短信通知您！-->
+    <!--</i-notice-bar>-->
+
+
+    <!--<i-input value="{{ email }}" title="邮箱" type="textarea" autofocus placeholder="请输入邮箱"  bind:change="handleEmailChange"/>-->
+    <!--<i-panel>-->
+        <!--<i-input value="{{ phone }}" title="联系电话" type="number" placeholder="请输入手机号" maxlength="11"  bind:change="handlePhoneChange"/>-->
+    <!--</i-panel>-->
+
+
+    <!--<i-panel>-->
+        <!--<view class="code">-->
+            <!--<i-input value="{{ code }}" title="验证码" type="number" maxlength="6"  placeholder="短信验证码"  bind:change="handleCodeChange"/>-->
+        <!--</view>-->
+        <!--<view class="code-btn">-->
+            <!--<button type="default" size="mini" bindtap="getCode" wx:if="{{showType}}">{{content}}</button>-->
+            <!--<button type="default" size="mini" wx:else >{{minus}}s</button>-->
+            <!--&lt;!&ndash;验证码&ndash;&gt;-->
+        <!--</view>-->
+    <!--</i-panel>-->
+
+    <view class="input-list">
+        <i-input value="{{ phone }}" title="联系电话" type="number" placeholder="请输入手机号" maxlength="11"  bind:change="handlePhoneChange"/>
+    </view>
+    <view class="input-list">
+        <view class="code">
+            <i-input value="{{ code }}" title="验证码" type="number" maxlength="6"  placeholder="短信验证码"  bind:change="handleCodeChange"/>
+        </view>
+        <view class="code-btn">
+            <button type="default" size="mini" bindtap="getCode" wx:if="{{showType}}">{{content}}</button>
+            <button type="default" size="mini" wx:else >{{minus}}s</button>
+            <!--验证码-->
+        </view>
+    </view>
+
+    <!--<view class="checkbox">-->
+        <!--<view class="select">-->
+            <!--<checkbox-group bindchange="checkboxChange">-->
+                <!--<label class="checkbox">-->
+                    <!--<checkbox value="{{name}}" />-->
+                <!--</label>-->
+            <!--</checkbox-group>-->
+        <!--</view>-->
+
+        <!--<view class="caption-wrap">-->
+            <!--我已阅读并同意澎湃小蜜<view style="display: inline; color:#2d8cf0;" bindtap="linkProvision">服务条款</view>-->
+        <!--</view>-->
+
+    <!--</view>-->
+
+    <view class="btn">
+        <i-button bind:click="SubmitClick" type="primary">注册</i-button>
+    </view>
+
+    <view class="mask" wx:if="{{showLoading}}">
+        <!--<i-spin fix>提交中</i-spin>-->
+        <view class="info">
+            提交中..
+        </view>
+    </view>
+
+    <i-toast id="toast" />
+
+
+</view>

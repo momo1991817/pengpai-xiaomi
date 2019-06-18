@@ -1,0 +1,103 @@
+.infodetail {background: #f8f8f9;padding-bottom: 15px;}
+
+.list {
+    background: #fff;
+    width: 90%;
+    margin: 15px auto 0;
+    border-radius: 5px;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+/*.list>.detail {height: 52px;}*/
+/*.detail>view,.footer>view{*/
+    /*float: left;*/
+/*}*/
+
+/*.detail>view.airline{*/
+    /*width: 40%;*/
+/*}*/
+
+/*.detail>.icons,.footer>view.seat{*/
+    /*width: 20%;*/
+/*}*/
+/*.detail>.icons{*/
+    /*height: 52px;*/
+    /*line-height: 52px;*/
+/*}*/
+/*.detail>.icons>image{*/
+    /*width: 30px;*/
+    /*height: 30px;*/
+    /*margin-top: 11px;*/
+/*}*/
+
+/*.airline>.time{*/
+    /*font-size: 24px;*/
+/*}*/
+/*.airline>.airport {*/
+    /*font-size: 16px;*/
+    /*color: #80848f;*/
+/*}*/
+
+/*.content>view:first-child ,*/
+/*.detail>view.airline:first-child{*/
+    /*text-align: left;*/
+/*}*/
+/*.content>view:last-child,*/
+/*.detail>view.airline:last-child{*/
+    /*text-align: right;*/
+/*}*/
+/*.list>.content{margin-top: 5px;}*/
+/*.content >view {*/
+    /*width: 50%;*/
+    /*display: inline-block;*/
+    /*-webkit-box-sizing: border-box;*/
+    /*-moz-box-sizing: border-box;*/
+    /*box-sizing: border-box;*/
+/*}*/
+/*.content>view>.info {*/
+    /*font-size: 12px;*/
+/*}*/
+/*.header {*/
+    /*margin-bottom: 5px;*/
+/*}*/
+/*.header>text {*/
+    /*font-size: 18px;*/
+    /*display: inline-block;*/
+    /*width: 50%;*/
+/*}*/
+/*.header>text:last-child{*/
+ /*text-align: right;*/
+/*}*/
+
+/*.content>view:first-child {*/
+    /*padding-left: 10px;*/
+/*}*/
+/*.content>view:last-child {*/
+    /*padding-right: 10px;*/
+/*}*/
+/*.content>view>.info {*/
+    /*color: #80848f;*/
+    /*font-size: 12px;*/
+/*}*/
+
+/*.ticket {*/
+    /*color: #ed3f14;*/
+/*}*/
+
+
+.content>.title {
+    font-size: 24px;
+}
+.content>.time{
+    font-size: 16px;
+    padding: 8px 0;
+    color:#80848f;
+}
+.content>.message{
+    font-size: 16px;
+}
+.btn {
+    margin:20px 8px;
+}

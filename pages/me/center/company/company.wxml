@@ -1,0 +1,38 @@
+
+<nav-bar navbar-title='绑定企业' navbar-icon="{{false}}" bind:myBackevent="onBackEvent"></nav-bar>
+
+<view class="search" >
+    <view class="list-search-box">
+        <icon type="search" size="15"/>
+        <input value="{{company}}"  bindinput="getVague" placeholder="公司名称"/>
+        <i-icon type="delete_fill" color="#80848f" size="16" bindtap="clearValue"/>
+    </view>
+
+</view>
+
+<view class="center" >
+    <view class="divider" >
+        <i-divider content="热门搜索" wx:if="{{showType}}"></i-divider>
+        <i-divider content="查询结果" wx:else></i-divider>
+    </view>
+
+    <view class="info" wx:if="{{showInfo}}">没有更多数据了</view>
+
+    <view class="list" wx:for="{{list}}" wx:key="key" bindtap="selectVal" data-id="{{item.id}}" data-name="{{item.companyName}}">
+       {{item.companyName}}
+    </view>
+
+
+    <i-modal title="确定绑定该公司" visible="{{ modal }}" actions="{{actions}}" bind:click="handleAction">
+        <view>{{company}}</view>
+    </i-modal>
+
+    <i-toast id="toast" />
+
+    <!--<view class="btn">-->
+        <!--<i-button bind:click="bindCompanyClick" type="primary">申请</i-button>-->
+    <!--</view>-->
+
+</view>
+
+

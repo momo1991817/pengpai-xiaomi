@@ -1,0 +1,28 @@
+.query {
+    background: #f8f8f9;
+    padding-bottom: 10px;
+    /*padding-top: 35px;*/
+}
+
+header>.btn {
+    float: right;
+    margin-right: 20px;
+}
+.header>.btn>view{
+    height: 30px;
+}
+.header>.btn button {
+    background: #2D8CF0;
+    font-size: 14px;
+    color: #fff;
+    padding: 0 8px;
+    height: 25px;
+    line-height: 25px;
+}
+
+.actionsModal>view{
+    width: 70%;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: center;
+}
